@@ -1,42 +1,28 @@
 package com.javaweb.api.admin;
-import com.javaweb.converter.ObjectToMapConverter;
 import com.javaweb.entity.UserEntity;
 import com.javaweb.model.dto.AssignmentBuildingDTO;
 import com.javaweb.model.dto.BuildingDTO;
-import com.javaweb.model.response.BuildingSearchResponse;
 import com.javaweb.model.response.ResponseDTO;
 import com.javaweb.model.response.StaffResponseDTO;
 import com.javaweb.repository.UserRepository;
-import com.javaweb.service.BuildingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
+
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
-@Transactional
 @RequestMapping("/api/buildings")
 public class BuildingAPI {
 
     @Autowired
     private UserRepository UserRepository;
-
-    @Autowired
-    private BuildingService buildingService;
-
-    @PersistenceContext
-    private EntityManager entityManager;
-
     @PostMapping
     private ResponseEntity<?> createOrUpdateBuilding(
             @Valid @RequestBody BuildingDTO buildingDTO, BindingResult bindingResult){
@@ -51,9 +37,7 @@ public class BuildingAPI {
                 responseDTO.setDetail(errorMessages);
                 return ResponseEntity.badRequest().body(responseDTO);
             }
-//            xuong service repository lay du lieu
-//                buildingService.createBuilding(buildingDTO);
-//              buildingService.createOrupdateBuilding(buildingDTO);
+            //xuong service repository lay du lieu
             return ResponseEntity.ok("");
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
@@ -62,15 +46,12 @@ public class BuildingAPI {
 
     @DeleteMapping("/{ids}")
     private Object deleteBuilding(@PathVariable List<String> ids){
-//        buildingService.deleteBuilding(ids);
         //xuong service
         return new String("okkk");
     }
 
     @GetMapping("/{id}")
     private Object loadStaffs(@PathVariable Long id){
-//        List<BuildingResponseDTO> BuildingResponseDTOs = buildingService.findAll(params, typecode);
-//        return BuildingResponseDTOs;
         //xuong service.....
         List<UserEntity> userEntities = UserRepository.findByStatusAndRoles_Code(1,"STAFF"); // all staff
         //BuildingEntity tuong ung voi id
@@ -87,10 +68,10 @@ public class BuildingAPI {
 //            }
 //            staffResponseDTOS.add(staffResponseDTO);
 //        }
-         StaffResponseDTO staff1 = new StaffResponseDTO();
-         staff1.setStaffId(1L);
-         staff1.setUserName("Pham Thang");
-         staff1.setChecked("checked");
+        StaffResponseDTO staff1 = new StaffResponseDTO();
+        staff1.setStaffId(1L);
+        staff1.setUserName("Pham Thang");
+        staff1.setChecked("checked");
 
         StaffResponseDTO staff2 = new StaffResponseDTO();
         staff2.setStaffId(2L);

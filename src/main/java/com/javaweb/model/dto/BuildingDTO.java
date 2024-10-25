@@ -38,8 +38,8 @@ public class BuildingDTO extends AbstractDTO {
     private String note;
     private String managerName;
     private String managerPhone;
-//    @Min(value = 0, message = "Rent Price must be >= 0")
-    private List<Long> rentPrice;
+    //    @Min(value = 0, message = "Rent Price must be >= 0")
+    private Long rentPrice;
     private String serviceFee;
     private double brokerageFee;
     private String image;
