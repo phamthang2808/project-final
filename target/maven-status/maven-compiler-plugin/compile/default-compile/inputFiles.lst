@@ -23,7 +23,6 @@ D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\config
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\repository\custom\impl\UserRepositoryImpl.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\repository\RoleRepository.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\utils\DisplayTagUtils.java
-D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\repository\impl\BuildingRepositoryImpl.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\service\BuildingService.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\controller\admin\UserController.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\api\admin\BuildingAPI.java

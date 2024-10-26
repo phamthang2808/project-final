@@ -6,6 +6,7 @@ import lombok.Setter;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,16 +14,18 @@ import java.util.Map;
 @Setter
 public class BuildingDTO extends AbstractDTO {
     private Long id;
+    //    @Min(value = 0, message = "Rent Price must be >= 0")
+    private Long rentPrice;
+    private Long numberOfBasement;
+    private Long floorArea;
+    private Long brokerageFee;
     @NotBlank(message = "Name Building can not be Blank")
     private String name;
     private String street;
     private String ward;
     private String district;
-    private Long numberOfBasement;
-    private Long floorArea;
     private String level;
     @Size(min = 1,message = "Type code must be size >= 1")
-    private List<String> typeCode;
     private String overtimeFee;
     private String electricityFee;
     private String deposit;
@@ -38,13 +41,10 @@ public class BuildingDTO extends AbstractDTO {
     private String note;
     private String managerName;
     private String managerPhone;
-    //    @Min(value = 0, message = "Rent Price must be >= 0")
-    private Long rentPrice;
     private String serviceFee;
-    private double brokerageFee;
     private String image;
     private String imageBase64;
     private String imageName;
-
+    private List<String> typeCode;
     private Map<String, String> buildingDTOs = new HashMap<>();
 }

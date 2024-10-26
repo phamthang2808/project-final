@@ -64,7 +64,6 @@ com\javaweb\builder\BuildingSearchBuilder.class
 com\javaweb\controller\admin\BuildingController.class
 com\javaweb\converter\BuildingSearchBuilderConverter.class
 com\javaweb\model\dto\AbstractDTO.class
-com\javaweb\service\impl\BuildingServiceImpl$1.class
 com\javaweb\repository\custom\impl\BuildingRepositoryCustomImpl.class
 com\javaweb\api\admin\UserAPI.class
 com\javaweb\converter\ObjectToMapConverter.class
