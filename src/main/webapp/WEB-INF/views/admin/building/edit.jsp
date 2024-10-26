@@ -286,12 +286,17 @@
         var formData = $("#form-edit").serializeArray(); //mang cac objects
         var json = {};
         var typeCode = [];
+        var renArea = []; // xu ly rieng rentArea -> List<Long>
         $.each(formData, function (i, v) {
             if (v.name == "typeCode") {
                 typeCode.push(v.value);
-            } else json["" + v.name + ""] = v.value;
+            }else if(v.name == "rentArea") {
+                renArea.push(v.value);
+            }
+            else json["" + v.name + ""] = v.value;
         });
         json["typeCode"] = typeCode;
+        json["rentArea"] = renArea;
         if (typeCode.length == 0) {
             alert("typecode not empty!");
         } else {

@@ -25,7 +25,6 @@ public class BuildingDTO extends AbstractDTO {
     private String ward;
     private String district;
     private String level;
-    @Size(min = 1,message = "Type code must be size >= 1")
     private String overtimeFee;
     private String electricityFee;
     private String deposit;
@@ -37,7 +36,7 @@ public class BuildingDTO extends AbstractDTO {
     private String motoFee;
     private String structure;
     private String direction;
-    private String rentArea;
+    private List<Long> rentArea;
     private String note;
     private String managerName;
     private String managerPhone;
@@ -45,6 +44,7 @@ public class BuildingDTO extends AbstractDTO {
     private String image;
     private String imageBase64;
     private String imageName;
+    @Size(min = 1,message = "Type code must be size >= 1")
     private List<String> typeCode;
     private Map<String, String> buildingDTOs = new HashMap<>();
 }

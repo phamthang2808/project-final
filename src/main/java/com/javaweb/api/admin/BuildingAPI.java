@@ -5,6 +5,7 @@ import com.javaweb.model.dto.BuildingDTO;
 import com.javaweb.model.response.ResponseDTO;
 import com.javaweb.model.response.StaffResponseDTO;
 import com.javaweb.repository.UserRepository;
+import com.javaweb.service.BuildingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,9 @@ public class BuildingAPI {
 
     @Autowired
     private UserRepository UserRepository;
+
+    @Autowired
+    private BuildingService buildingService;
     @PostMapping
     private ResponseEntity<?> createOrUpdateBuilding(
             @Valid @RequestBody BuildingDTO buildingDTO, BindingResult bindingResult){
@@ -38,6 +42,7 @@ public class BuildingAPI {
                 return ResponseEntity.badRequest().body(responseDTO);
             }
             //xuong service repository lay du lieu
+            buildingService.createOrupdateBuilding(buildingDTO);
             return ResponseEntity.ok("");
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());

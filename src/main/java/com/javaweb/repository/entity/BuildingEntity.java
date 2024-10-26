@@ -3,7 +3,6 @@ package com.javaweb.repository.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,10 +40,10 @@ public class BuildingEntity {
     private Long brokerageFee;
 
     @Column(name = "rentprice", nullable = false)
-    private Long rentprice;
+    private Long rentPrice;
 
     @Column(name = "floorarea")
-    private Long floorarea;
+    private Long floorArea;
 
     @Column(name = "servicefee")
     private String serviceFee;
@@ -74,7 +73,7 @@ public class BuildingEntity {
     private String managerName;
 
     @Column(name = "managerphone")
-    private String managerPhoneNumber;
+    private String managerPhone;
 
     @Column(name = "carfee")
     private String carFee;
@@ -83,7 +82,7 @@ public class BuildingEntity {
     private String motoFee;
 
     @Column(name = "type")
-    private String type;
+    private String typeCode;
 
     @Column(name = "overtimefee")
     private String overtimeFee;
