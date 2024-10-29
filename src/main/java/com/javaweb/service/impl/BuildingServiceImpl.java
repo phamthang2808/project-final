@@ -96,6 +96,7 @@ public class BuildingServiceImpl implements BuildingService {
     public void deleteBuilding(Long[] ids) {
         List<BuildingEntity> buildingEntities = buildingRepository.findByIdIn(ids);
         rentAreaRepository.deleteAllByBuildingIn(buildingEntities);
+        assignmentBuildingRepository.deleteAllByBuildingIn(buildingEntities);
         buildingRepository.deleteByIdIn(ids);
     }
 
@@ -118,7 +119,7 @@ public class BuildingServiceImpl implements BuildingService {
         List<AssignmentBuildingEntity> assignmentBuildingEntities = assignmentBuildingRepository.findAll();
 
         for (AssignmentBuildingEntity assignmentBuildingEntity : assignmentBuildingEntities) {
-            if (assignmentBuildingEntity.getBuildingId().getId().equals(id)) {
+            if (assignmentBuildingEntity.getBuilding().getId().equals(id)) {
                 liststaffById.add(assignmentBuildingEntity);
             }
         }
@@ -140,7 +141,7 @@ public class BuildingServiceImpl implements BuildingService {
             buildingEntity = buildingRepository.getOne(assignmentBuildingDTO.getBuildingId());
         }
         if (buildingEntity != null) {
-            assignmentBuildingRepository.deleteAllByBuildingId(buildingEntity);
+            assignmentBuildingRepository.deleteAllByBuildingId(buildingEntity.getId());
         }
         if (assignmentBuildingDTO.getBuildingId() != null) {
             List<UserEntity> userEntities = new ArrayList<>();
@@ -150,7 +151,7 @@ public class BuildingServiceImpl implements BuildingService {
             }
             for (UserEntity userEntity : userEntities) {
                 AssignmentBuildingEntity assignmentBuildingEntity1 = new AssignmentBuildingEntity();
-                assignmentBuildingEntity1.setBuildingId(buildingEntity);
+                assignmentBuildingEntity1.setBuilding(buildingEntity);
                 assignmentBuildingEntity1.setStaffs(userEntity);
                 assignmentBuildingRepository.save(assignmentBuildingEntity1);
             }

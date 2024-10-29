@@ -18,7 +18,7 @@ public class AssignmentBuildingEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "buildingid")
-    private BuildingEntity buildingId;
+    private BuildingEntity building;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "staffid")
