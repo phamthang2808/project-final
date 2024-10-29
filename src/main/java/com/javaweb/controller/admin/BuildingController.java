@@ -1,7 +1,6 @@
 package com.javaweb.controller.admin;
 
 
-
 import com.javaweb.converter.ObjectToMapConverter;
 import com.javaweb.enums.buildingType;
 import com.javaweb.enums.districtCode;
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@RestController(value="buildingControllerOfAdmin")
+@RestController(value = "buildingControllerOfAdmin")
 public class BuildingController {
     @Autowired
     private IUserService userService;
@@ -30,7 +29,7 @@ public class BuildingController {
     private ModelMapper modelMapper;
 
     @GetMapping("/admin/building-list")
-    public ModelAndView buildingList(@ModelAttribute(name ="modelSearch") BuildingSearchRequest params){
+    public ModelAndView buildingList(@ModelAttribute(name = "modelSearch") BuildingSearchRequest params) {
         ModelAndView modelAndView = new ModelAndView("admin/building/list");
         modelAndView.addObject("district", districtCode.type());
         modelAndView.addObject("renttype", buildingType.type());
@@ -39,42 +38,32 @@ public class BuildingController {
         ObjectToMapConverter objectToMapConverter = new ObjectToMapConverter();
         Map<String, String> searchParams = objectToMapConverter.convertToMap(params);
         List<BuildingSearchResponse> buildings = buildingService.findAll(searchParams, params.getTypeCode());
-        System.out.println("building size: "  + buildings.size());
         List<BuildingSearchResponse> respones = new ArrayList<>();
-         for(BuildingSearchResponse building : buildings){
-             BuildingSearchResponse buildingSearchRespone = modelMapper.map(building, BuildingSearchResponse.class);
-             respones.add(buildingSearchRespone);
-             System.out.println("Size response: "+ respones.size());
-         }
-         modelAndView.addObject("listBuiling", respones);
-        return modelAndView;
-    }
-
-    @GetMapping("/admin/building-edit")
-    public ModelAndView buildingEdit(@ModelAttribute(name = "buildingEdit") BuildingDTO buildingDTO){
-        ModelAndView modelAndView = new ModelAndView("admin/building/edit");
-        modelAndView.addObject("district", districtCode.type());
-        modelAndView.addObject("renttype", buildingType.type());
+        for (BuildingSearchResponse building : buildings) {
+            BuildingSearchResponse buildingSearchRespone = modelMapper.map(building, BuildingSearchResponse.class);
+            respones.add(buildingSearchRespone);
+        }
+        modelAndView.addObject("listBuiling", respones);
         return modelAndView;
     }
 
     @GetMapping("/admin/building-edit-{id}")
-    public ModelAndView buildingEdit(@PathVariable Long id){
+    public ModelAndView buildingEdit(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView("admin/building/edit");
         modelAndView.addObject("district", districtCode.type());
         modelAndView.addObject("renttype", buildingType.type());
-        //xuong DB dung ham findByID de lay data toa nha hien tai =>BuildingEntity convert BuildingDTO
 
-        //gan cung
-        BuildingDTO buildingDTO = new BuildingDTO();
-        buildingDTO.setId(id);
-        buildingDTO.setName("Novotel");
-        buildingDTO.setFloorArea(3L);
-        List<String> typeCodes = new ArrayList<>();
-        typeCodes.add("TANG_TRET");
-        typeCodes.add("NGUYEN_CAN");
-        buildingDTO.setTypeCode(typeCodes);
-        modelAndView.addObject("buildingEdit", buildingDTO);
+        //xuong service dung findById
+        BuildingDTO buildingDTO = buildingService.findById(id);
+         modelAndView.addObject("buildingEdit", buildingDTO);
+        return modelAndView;
+    }
+
+    @GetMapping("/admin/building-edit")
+    public ModelAndView buildingEdit(@ModelAttribute(name = "buildingEdit") BuildingDTO buildingDTO) {
+        ModelAndView modelAndView = new ModelAndView("admin/building/edit");
+        modelAndView.addObject("district", districtCode.type());
+        modelAndView.addObject("renttype", buildingType.type());
         return modelAndView;
     }
 }

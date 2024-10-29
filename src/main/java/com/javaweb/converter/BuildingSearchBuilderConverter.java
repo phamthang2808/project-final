@@ -18,10 +18,10 @@ public class BuildingSearchBuilderConverter {
                 .setNumberOfBasement(MapUtils.getObject(params, "numberOfBasement", Long.class))
                 .setAreaFrom(MapUtils.getObject(params, "areaFrom", Long.class))
                 .setAreaTo(MapUtils.getObject(params, "areaTo", Long.class))
-                .setPriceFrom(MapUtils.getObject(params, "priceFrom", Long.class))
-                .setPriceTo(MapUtils.getObject(params, "priceTo", Long.class))
+                .setPriceFrom(MapUtils.getObject(params, "rentPriceFrom", Long.class))
+                .setPriceTo(MapUtils.getObject(params, "rentPriceTo", Long.class))
                 .setManagerName(MapUtils.getObject(params, "managerName", String.class))
-                .setManagerPhoneNumber(MapUtils.getObject(params, "managerPhoneNumber", String.class))
+                .setManagerPhoneNumber(MapUtils.getObject(params, "managerPhone", String.class))
                 .setStaffId(MapUtils.getObject(params, "staffId", Long.class))
                 .setTypecode(typeCode)
                 .build();

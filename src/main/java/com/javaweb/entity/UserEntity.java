@@ -1,5 +1,6 @@
 package com.javaweb.entity;
 
+import com.javaweb.repository.entity.AssignmentBuildingEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -42,9 +43,9 @@ public class UserEntity extends BaseEntity {
     private List<RoleEntity> roles = new ArrayList<>();
 
 
-//    @OneToMany(mappedBy="staffs", fetch = FetchType.LAZY)
-//    private List<AssignmentBuildingEntity> assignmentBuildingEntities = new ArrayList<>();
-//
+    @OneToMany(mappedBy="staffs", fetch = FetchType.LAZY)
+    private List<AssignmentBuildingEntity> assignmentBuildingEntities = new ArrayList<>();
+
 //    @OneToMany(mappedBy="users", fetch = FetchType.LAZY)
 //    private List<UserRoleEntity> userRoleEntities = new ArrayList<>();
 

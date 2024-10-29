@@ -21,7 +21,7 @@ public class DistrictEntity {
    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
-    @OneToMany(mappedBy = "districtEntity")
+    @OneToMany(mappedBy = "district")
     private List<BuildingEntity> buildingEntities = new ArrayList<BuildingEntity>();
 
     @Column(name = "name")

@@ -14,7 +14,7 @@ import java.util.Map;
 @Setter
 public class BuildingDTO extends AbstractDTO {
     private Long id;
-    //    @Min(value = 0, message = "Rent Price must be >= 0")
+//    @Min(value = 0, message = "Rent Price must be >= 0")
     private Long rentPrice;
     private Long numberOfBasement;
     private Long floorArea;
@@ -23,7 +23,7 @@ public class BuildingDTO extends AbstractDTO {
     private String name;
     private String street;
     private String ward;
-    private String district;
+    private String district;//
     private String level;
     private String overtimeFee;
     private String electricityFee;
@@ -36,7 +36,8 @@ public class BuildingDTO extends AbstractDTO {
     private String motoFee;
     private String structure;
     private String direction;
-    private List<Long> rentArea;
+//    @NotBlank(message = "rentArea can not be Blank")
+    private List<Long> rentArea;//
     private String note;
     private String managerName;
     private String managerPhone;

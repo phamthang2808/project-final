@@ -113,7 +113,7 @@
                     <div class="form-group">
                         <label class="col-xs-3">Diện tích thuê</label>
                         <div class="col-xs-9">
-                            <form:input class="form-control" path="rentArea"/>
+                            <form:input class="form-control" path="rentArea" placeholder="Nhập diện tích thuê, cách nhau bằng dấu phẩy"/>
                                 <%--                            <input type="text" name="dientichthue" id="dientichthue" class="form-control">--%>
                         </div>
                     </div>
@@ -291,9 +291,10 @@
             if (v.name == "typeCode") {
                 typeCode.push(v.value);
             }else if(v.name == "rentArea") {
-                renArea.push(v.value);
-            }
-            else json["" + v.name + ""] = v.value;
+                renArea = v.value.split(",").map(function (item) {
+                    return item.trim();
+                });
+            }else json["" + v.name + ""] = v.value;
         });
         json["typeCode"] = typeCode;
         json["rentArea"] = renArea;

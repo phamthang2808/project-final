@@ -19,7 +19,7 @@ public class BuildingSearchBuilder {
     private Long priceFrom;
     private Long priceTo;
     private String managerName;
-    private String managerPhoneNumber;
+    private String managerPhone;
     private Long staffId;
     private List<String> typecode = new ArrayList<>();
 
@@ -32,7 +32,7 @@ public class BuildingSearchBuilder {
         this.numberOfBasement = builder.numberOfBasement;
         this.typecode = builder.typecode;
         this.managerName = builder.managerName;
-        this.managerPhoneNumber = builder.managerPhoneNumber;
+        this.managerPhone = builder.managerPhoneNumber;
         this.priceFrom = builder.priceFrom;
         this.priceTo = builder.priceTo;
         this.areaFrom = builder.areaFrom;

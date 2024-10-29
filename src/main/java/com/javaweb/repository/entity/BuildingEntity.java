@@ -28,7 +28,7 @@ public class BuildingEntity {
 
     @ManyToOne
     @JoinColumn(name = "district")
-    private DistrictEntity districtEntity;
+    private DistrictEntity district;
 
     @OneToMany(mappedBy = "building")
     private List<RentAreaEntity> rentAreaEntities = new ArrayList<>();

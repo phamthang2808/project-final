@@ -27,6 +27,7 @@ public class BuildingAPI {
 
     @Autowired
     private BuildingService buildingService;
+
     @PostMapping
     private ResponseEntity<?> createOrUpdateBuilding(
             @Valid @RequestBody BuildingDTO buildingDTO, BindingResult bindingResult){
@@ -43,16 +44,17 @@ public class BuildingAPI {
             }
             //xuong service repository lay du lieu
             buildingService.createOrupdateBuilding(buildingDTO);
-            return ResponseEntity.ok("");
+            return ResponseEntity.ok("Building information saved successfully.");
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
     }
 
     @DeleteMapping("/{ids}")
-    private Object deleteBuilding(@PathVariable List<String> ids){
+    private Object deleteBuilding(@PathVariable Long[] ids){
         //xuong service
-        return new String("okkk");
+        buildingService.deleteBuilding(ids);
+        return new String("deleteBuilding successfully.");
     }
 
     @GetMapping("/{id}")
@@ -60,44 +62,19 @@ public class BuildingAPI {
         //xuong service.....
         List<UserEntity> userEntities = UserRepository.findByStatusAndRoles_Code(1,"STAFF"); // all staff
         //BuildingEntity tuong ung voi id
-        List<UserEntity> assigmentStaffs = new ArrayList<>();
+        List<UserEntity> assigmentStaffs = buildingService.findByBuildingId(id);
         List<StaffResponseDTO> staffResponseDTOS = new ArrayList<>();
-//        for(UserEntity userEntity : userEntities){
-//            StaffResponseDTO staffResponseDTO  = new StaffResponseDTO();
-//            staffResponseDTO.setStaffId(userEntity.getId());
-//            staffResponseDTO.setUserName(userEntity.getUserName());
-//            if(assigmentStaffs.contains(userEntity)){
-//                staffResponseDTO.setChecked("checked");
-//            }else {
-//                staffResponseDTO.setChecked("");
-//            }
-//            staffResponseDTOS.add(staffResponseDTO);
-//        }
-        StaffResponseDTO staff1 = new StaffResponseDTO();
-        staff1.setStaffId(1L);
-        staff1.setUserName("Pham Thang");
-        staff1.setChecked("checked");
-
-        StaffResponseDTO staff2 = new StaffResponseDTO();
-        staff2.setStaffId(2L);
-        staff2.setUserName("Vo Thinh");
-        staff2.setChecked("");
-
-        StaffResponseDTO staff3 = new StaffResponseDTO();
-        staff3.setStaffId(3L);
-        staff3.setUserName("Minh Hoang");
-        staff3.setChecked("");
-
-        StaffResponseDTO staff4 = new StaffResponseDTO();
-        staff4.setStaffId(4L);
-        staff4.setUserName("Nguyen Tuan");
-        staff4.setChecked("checked");
-
-        staffResponseDTOS.add(staff1);
-        staffResponseDTOS.add(staff2);
-        staffResponseDTOS.add(staff3);
-        staffResponseDTOS.add(staff4);
-
+        for(UserEntity userEntity : userEntities){ // duyet
+            StaffResponseDTO staffResponseDTO  = new StaffResponseDTO();
+            staffResponseDTO.setStaffId(userEntity.getId());
+            staffResponseDTO.setUserName(userEntity.getUserName());
+            if(assigmentStaffs.contains(userEntity)){
+                staffResponseDTO.setChecked("checked");
+            }else {
+                staffResponseDTO.setChecked("");
+            }
+            staffResponseDTOS.add(staffResponseDTO);
+        }
         ResponseDTO responseDTO = new ResponseDTO();
         responseDTO.setData(staffResponseDTOS);
         responseDTO.setMessage("success");
@@ -107,6 +84,7 @@ public class BuildingAPI {
     @PutMapping("/staffs")
     private Object updateAssignmentBuilding(@RequestBody AssignmentBuildingDTO assignmentBuildingDTO){
         //xuong service
-        return new String("okkeeee");
+        buildingService.updateAssignmentBuilding(assignmentBuildingDTO);
+        return new String("update AssignmentBuilding successfully.");
     }
 }
