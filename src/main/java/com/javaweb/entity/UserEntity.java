@@ -1,6 +1,5 @@
 package com.javaweb.entity;
 
-import com.javaweb.repository.entity.AssignmentBuildingEntity;
 import lombok.Getter;
 import lombok.Setter;
 

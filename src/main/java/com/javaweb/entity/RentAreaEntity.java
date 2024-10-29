@@ -1,4 +1,4 @@
-package com.javaweb.repository.entity;
+package com.javaweb.entity;
 
 import lombok.Getter;
 import lombok.Setter;

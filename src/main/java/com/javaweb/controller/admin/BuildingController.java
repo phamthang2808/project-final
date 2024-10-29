@@ -25,6 +25,7 @@ public class BuildingController {
 
     @Autowired
     private BuildingService buildingService;
+
     @Autowired
     private ModelMapper modelMapper;
 
@@ -34,16 +35,10 @@ public class BuildingController {
         modelAndView.addObject("district", districtCode.type());
         modelAndView.addObject("renttype", buildingType.type());
         modelAndView.addObject("staffs", userService.listStaff());
+
         //xuong db lay du lieu
-        ObjectToMapConverter objectToMapConverter = new ObjectToMapConverter();
-        Map<String, String> searchParams = objectToMapConverter.convertToMap(params);
-        List<BuildingSearchResponse> buildings = buildingService.findAll(searchParams, params.getTypeCode());
-        List<BuildingSearchResponse> respones = new ArrayList<>();
-        for (BuildingSearchResponse building : buildings) {
-            BuildingSearchResponse buildingSearchRespone = modelMapper.map(building, BuildingSearchResponse.class);
-            respones.add(buildingSearchRespone);
-        }
-        modelAndView.addObject("listBuiling", respones);
+        List<BuildingSearchResponse> buildings = buildingService.findAll(params, params.getTypeCode());
+        modelAndView.addObject("listBuiling", buildings);
         return modelAndView;
     }
 

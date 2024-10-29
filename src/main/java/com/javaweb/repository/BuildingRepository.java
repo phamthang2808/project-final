@@ -3,7 +3,7 @@ package com.javaweb.repository;
 import java.util.List;
 
 import com.javaweb.builder.BuildingSearchBuilder;
-import com.javaweb.repository.entity.BuildingEntity;
+import com.javaweb.entity.BuildingEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.javaweb.repository.custom.BuildingRepositoryCustom;
 

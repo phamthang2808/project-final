@@ -1,4 +1,4 @@
-package com.javaweb.repository.entity;
+package com.javaweb.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +8,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,10 +24,6 @@ public class BuildingEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "district")
-    private DistrictEntity district;
 
     @OneToMany(mappedBy = "building")
     private List<RentAreaEntity> rentAreaEntities = new ArrayList<>();
@@ -53,6 +48,9 @@ public class BuildingEntity {
 
     @Column(name = "ward")
     private String ward;
+
+    @Column(name = "district")
+    private String district;
 
     @Column(name = "street")
     private String street;

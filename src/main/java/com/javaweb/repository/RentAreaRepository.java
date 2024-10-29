@@ -1,9 +1,9 @@
 package com.javaweb.repository;
 
-import com.javaweb.repository.entity.BuildingEntity;
+import com.javaweb.entity.BuildingEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.javaweb.repository.entity.RentAreaEntity;
+import com.javaweb.entity.RentAreaEntity;
 
 import java.util.List;
 

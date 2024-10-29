@@ -1,31 +1,26 @@
 package com.javaweb.service.impl;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
-import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 
 import com.javaweb.builder.BuildingSearchBuilder;
 import com.javaweb.converter.BuildingConverter;
 import com.javaweb.converter.BuildingSearchBuilderConverter;
+import com.javaweb.converter.ObjectToMapConverter;
 import com.javaweb.entity.UserEntity;
 import com.javaweb.model.dto.AssignmentBuildingDTO;
 import com.javaweb.model.dto.BuildingDTO;
+import com.javaweb.model.request.BuildingSearchRequest;
 import com.javaweb.model.response.BuildingSearchResponse;
 import com.javaweb.repository.*;
-import com.javaweb.repository.entity.AssignmentBuildingEntity;
-import com.javaweb.repository.entity.BuildingEntity;
-import com.javaweb.repository.entity.DistrictEntity;
-import com.javaweb.repository.entity.RentAreaEntity;
+import com.javaweb.entity.AssignmentBuildingEntity;
+import com.javaweb.entity.BuildingEntity;
+import com.javaweb.entity.RentAreaEntity;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.modelmapper.ModelMapper;
 import com.javaweb.service.BuildingService;
-
-import static com.lowagie.text.Image.skip;
 
 @Service
 @Transactional
@@ -47,18 +42,20 @@ public class BuildingServiceImpl implements BuildingService {
     private RentAreaRepository rentAreaRepository;
 
     @Autowired
-    private DistrictRepository districtRepository;
-
-    @Autowired
     private AssignmentBuildingRepository assignmentBuildingRepository;
 
     @Autowired
     private UserRepository userRepository;
 
     @Override
-    public List<BuildingSearchResponse> findAll(Map<String, String> params, List<String> typecode) {
-        BuildingSearchBuilder buildingSearchBuilder = builderConverter.toBuildingSearchBuilder(params, typecode);
+    public List<BuildingSearchResponse> findAll(BuildingSearchRequest params, List<String> typecode) {
+        ObjectToMapConverter objectToMapConverter = new ObjectToMapConverter();
+       Map<String, String> searchParams = objectToMapConverter.convertToMap(params);
+
+       //convert ->Object
+        BuildingSearchBuilder buildingSearchBuilder = builderConverter.toBuildingSearchBuilder(searchParams, typecode);// map
         List<BuildingEntity> BuildingEntities = buildingRepository.findAll(buildingSearchBuilder);
+
         //chuyen entity sang dto
         List<BuildingSearchResponse> BuildingSearchRespones = new ArrayList<>();
         for (BuildingEntity it : BuildingEntities) {
@@ -76,8 +73,8 @@ public class BuildingServiceImpl implements BuildingService {
      //       buildingEntity = buildingRepository.getOne(building.getId());
             rentAreaRepository.deleteAllByBuilding(buildingEntity);
         }
-        DistrictEntity districtEntity = districtRepository.findById(building.getDistrict()).get();
-        buildingEntity.setDistrict(districtEntity);
+//        DistrictEntity districtEntity = districtRepository.findById(building.getDistrict()).get();
+//        buildingEntity.setDistrict(districtEntity);
         buildingRepository.save(buildingEntity);
         //vi du them du lieu co thuoc tinh o bang khac 1 building co nhieu rentarea
         for (Long value : building.getRentArea()) {
