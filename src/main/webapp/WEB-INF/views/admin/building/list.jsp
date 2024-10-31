@@ -312,7 +312,7 @@
                         <td>${item.address}</td>
                         <td>${item.numberOfBasement}</td>
                         <td>${item.managerName}</td>
-                        <td>${item.managerPhoneNumber}</td>
+                        <td>${item.managerPhone}</td>
                         <td>${item.floorArea}</td>
                         <td>${item.emptyArea}</td>
                         <td>${item.rentArea}</td>
@@ -439,6 +439,7 @@
             success: function (result) {
                 console.log("success");
                 alert(result);
+                location.replace("/admin/building-list");
             },
             error: function (result) {
                 console.log("failed");

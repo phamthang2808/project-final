@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.javaweb.builder.BuildingSearchBuilder;
 import com.javaweb.entity.BuildingEntity;
+import com.javaweb.entity.RentAreaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.javaweb.repository.custom.BuildingRepositoryCustom;
 

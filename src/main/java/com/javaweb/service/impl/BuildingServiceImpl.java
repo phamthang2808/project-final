@@ -67,14 +67,14 @@ public class BuildingServiceImpl implements BuildingService {
 
     @Override
     public void createOrupdateBuilding(BuildingDTO building) {
-//        BuildingEntity buildingEntity = buildingConverter.converterToBuildingEntity(building);
         BuildingEntity buildingEntity = modelMapper.map(building, BuildingEntity.class);
+        if (building.getTypeCode() != null && !building.getTypeCode().isEmpty()) {
+            String typeCodeString = String.join(",", building.getTypeCode());
+            buildingEntity.setTypeCode(typeCodeString);
+        }
         if (building.getId() != null) {
-     //       buildingEntity = buildingRepository.getOne(building.getId());
             rentAreaRepository.deleteAllByBuilding(buildingEntity);
         }
-//        DistrictEntity districtEntity = districtRepository.findById(building.getDistrict()).get();
-//        buildingEntity.setDistrict(districtEntity);
         buildingRepository.save(buildingEntity);
         //vi du them du lieu co thuoc tinh o bang khac 1 building co nhieu rentarea
         for (Long value : building.getRentArea()) {
@@ -124,12 +124,14 @@ public class BuildingServiceImpl implements BuildingService {
             }
         }
         List<UserEntity> userEntities = new ArrayList<>();
-        for (AssignmentBuildingEntity assignmentBuildingEntity : liststaffById) {
-            UserEntity userEntity = assignmentBuildingEntity.getStaffs();//tra ve doi tuong
-            if (userEntity != null) {
-                userEntities.add(userEntity);
-            }
-        }
+        userEntities = userRepository.findByAssignmentBuildingEntitiesIn(liststaffById);
+//        for (AssignmentBuildingEntity assignmentBuildingEntity : liststaffById) {
+//            UserEntity userEntity = assignmentBuildingEntity.getStaffs();//tra ve doi tuong
+//            if (userEntity != null) {
+//                userEntities.add(userEntity);
+//            }
+//        }
+
         return userEntities;
     }
 

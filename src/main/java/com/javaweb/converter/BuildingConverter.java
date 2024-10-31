@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
+import com.javaweb.enums.districtCode;
 import com.javaweb.model.dto.BuildingDTO;
 import com.javaweb.model.response.BuildingSearchResponse;
 import com.javaweb.entity.BuildingEntity;
@@ -20,6 +21,17 @@ public class BuildingConverter {
 
     public BuildingSearchResponse converterToBuilingResponseDTO(BuildingEntity it) {
         BuildingSearchResponse buildingSearchRespone = modelMapper.map(it, BuildingSearchResponse.class);
+        String districtName = "";
+        if(it.getDistrict() != null){
+            try {
+                districtName = districtCode.valueOf(it.getDistrict()).getDistrictName();
+            } catch (IllegalArgumentException e) {
+                districtName = " District null";
+            }
+        }
+
+        buildingSearchRespone.setAddress(it.getStreet() + "," + it.getWard() + "," + districtName);
+
         String rentArea = (it.getRentAreaEntities() != null) ? it.getRentAreaEntities().stream()
                 .map(i -> i.getValue().toString()).collect(Collectors.joining(",")) : "rent area null";
         buildingSearchRespone.setRentArea(rentArea);

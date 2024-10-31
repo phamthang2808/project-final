@@ -32,7 +32,7 @@ public class BuildingSearchBuilder {
         this.numberOfBasement = builder.numberOfBasement;
         this.typecode = builder.typecode;
         this.managerName = builder.managerName;
-        this.managerPhone = builder.managerPhoneNumber;
+        this.managerPhone = builder.managerPhone;
         this.priceFrom = builder.priceFrom;
         this.priceTo = builder.priceTo;
         this.areaFrom = builder.areaFrom;
@@ -53,7 +53,7 @@ public class BuildingSearchBuilder {
         private Long priceFrom;
         private Long priceTo;
         private String managerName;
-        private String managerPhoneNumber;
+        private String managerPhone;
         private Long staffId;
 
         public Builder setName(String name) {
@@ -100,8 +100,8 @@ public class BuildingSearchBuilder {
             this.managerName = managerName;
             return this;
         }
-        public Builder setManagerPhoneNumber(String managerPhoneNumber) {
-            this.managerPhoneNumber = managerPhoneNumber;
+        public Builder setManagerPhone(String managerPhone) {
+            this.managerPhone = managerPhone;
             return this;
         }
         public Builder setStaffId(Long staffId) {

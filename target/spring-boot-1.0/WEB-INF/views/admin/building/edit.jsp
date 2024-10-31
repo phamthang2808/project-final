@@ -314,6 +314,7 @@
             success: function (result) {
                 console.log("success");
                 alert(result)
+                location.replace("/admin/building-list");
             },
             error: function (result) {
                 console.log(result.message);
