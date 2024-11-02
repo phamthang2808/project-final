@@ -1,6 +1,7 @@
 package com.javaweb.service.impl;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -13,6 +14,7 @@ import com.javaweb.model.dto.AssignmentBuildingDTO;
 import com.javaweb.model.dto.BuildingDTO;
 import com.javaweb.model.request.BuildingSearchRequest;
 import com.javaweb.model.response.BuildingSearchResponse;
+import com.javaweb.model.response.TypeCodeResponseDTO;
 import com.javaweb.repository.*;
 import com.javaweb.entity.AssignmentBuildingEntity;
 import com.javaweb.entity.BuildingEntity;
@@ -84,13 +86,29 @@ public class BuildingServiceImpl implements BuildingService {
             rentAreaRepository.save(rentAreaEntity);
         }
     }
-
     @Override
     public BuildingDTO findById(Long id) {
         BuildingEntity buildingEntity = buildingRepository.findById(id).get();// get id
         BuildingDTO buildingDTO = buildingConverter.converterToBuilingDTO(buildingEntity);// convert entity -> dto
+//        List<TypeCodeResponseDTO> typeCodeResponseDTOS = new ArrayList<>();
+//        List<String> AllTypeCode = buildingDTO.getTypeCode();
+//        for(String value : AllTypeCode){
+//            TypeCodeResponseDTO typeCodeResponseDTO = new TypeCodeResponseDTO();
+//            typeCodeResponseDTO.setTypeCode(value);
+//            if( value.equals(AllTypeCode)){
+//                typeCodeResponseDTO.setChecked("checked");
+//            }else {
+//                typeCodeResponseDTO.setChecked("");
+//            }
+//           typeCodeResponseDTOS.add(typeCodeResponseDTO);
+//        }
+//        List<String> typeCodeStrings = typeCodeResponseDTOS.stream()
+//                .map(TypeCodeResponseDTO::getTypeCode)
+//                .collect(Collectors.toList());
+//        buildingDTO.setTypeCode(typeCodeStrings);
         return buildingDTO;
     }
+
 
     @Override
     public void deleteBuilding(Long[] ids) {
@@ -123,15 +141,7 @@ public class BuildingServiceImpl implements BuildingService {
                 liststaffById.add(assignmentBuildingEntity);
             }
         }
-        List<UserEntity> userEntities = new ArrayList<>();
-        userEntities = userRepository.findByAssignmentBuildingEntitiesIn(liststaffById);
-//        for (AssignmentBuildingEntity assignmentBuildingEntity : liststaffById) {
-//            UserEntity userEntity = assignmentBuildingEntity.getStaffs();//tra ve doi tuong
-//            if (userEntity != null) {
-//                userEntities.add(userEntity);
-//            }
-//        }
-
+        List<UserEntity> userEntities = userRepository.findByAssignmentBuildingEntitiesIn(liststaffById);
         return userEntities;
     }
 
@@ -146,11 +156,8 @@ public class BuildingServiceImpl implements BuildingService {
             assignmentBuildingRepository.deleteAllByBuildingId(buildingEntity.getId());
         }
         if (assignmentBuildingDTO.getBuildingId() != null) {
-            List<UserEntity> userEntities = new ArrayList<>();
-            for (Long value : assignmentBuildingDTO.getStaffs()) {
-                UserEntity userEntity = userRepository.findById(value).get();
-                userEntities.add(userEntity);
-            }
+            List<UserEntity> userEntities = userRepository.findByIdIn(assignmentBuildingDTO.getStaffs());
+
             for (UserEntity userEntity : userEntities) {
                 AssignmentBuildingEntity assignmentBuildingEntity1 = new AssignmentBuildingEntity();
                 assignmentBuildingEntity1.setBuilding(buildingEntity);

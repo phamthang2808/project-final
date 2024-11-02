@@ -1,5 +1,6 @@
 package com.javaweb.converter;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -49,6 +50,12 @@ public class BuildingConverter {
                 .map(RentAreaEntity::getValue) // Lấy giá trị từ mỗi RentAreaEntity
                 .collect(Collectors.toList()); // Chuyển đổi thành danh sách
         buildingDTO.setRentArea(rentAreas);
+
+        if (it.getTypeCode() != null && !it.getTypeCode().isEmpty()) {
+            List<String> typeCodeList = Arrays.asList(it.getTypeCode().split(","));
+            buildingDTO.setTypeCode(typeCodeList);
+        }
+
 
         return buildingDTO;
     }

@@ -63,6 +63,7 @@ public class BuildingAPI {
         List<UserEntity> userEntities = UserRepository.findByStatusAndRoles_Code(1,"STAFF"); // all staff
         //BuildingEntity tuong ung voi id
         List<UserEntity> assigmentStaffs = buildingService.findByBuildingId(id);
+
         List<StaffResponseDTO> staffResponseDTOS = new ArrayList<>();
         for(UserEntity userEntity : userEntities){ // duyet
             StaffResponseDTO staffResponseDTO  = new StaffResponseDTO();
