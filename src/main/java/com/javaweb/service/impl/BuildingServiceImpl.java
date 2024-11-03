@@ -74,17 +74,25 @@ public class BuildingServiceImpl implements BuildingService {
             String typeCodeString = String.join(",", building.getTypeCode());
             buildingEntity.setTypeCode(typeCodeString);
         }
+        List<RentAreaEntity> rentAreaEntities = new ArrayList<>();
+        for(Long value : building.getRentArea()){
+           RentAreaEntity rentAreaEntity = new RentAreaEntity();
+           rentAreaEntity.setBuilding(buildingEntity);
+           rentAreaEntity.setValue(value);
+           rentAreaEntities.add(rentAreaEntity);
+        }
+        buildingEntity.setRentAreaEntities(rentAreaEntities);
         if (building.getId() != null) {
             rentAreaRepository.deleteAllByBuilding(buildingEntity);
         }
         buildingRepository.save(buildingEntity);
         //vi du them du lieu co thuoc tinh o bang khac 1 building co nhieu rentarea
-        for (Long value : building.getRentArea()) {
-            RentAreaEntity rentAreaEntity = new RentAreaEntity();
-            rentAreaEntity.setBuilding(buildingEntity);
-            rentAreaEntity.setValue(value);
-            rentAreaRepository.save(rentAreaEntity);
-        }
+//        for (Long value : building.getRentArea()) {
+//            RentAreaEntity rentAreaEntity = new RentAreaEntity();
+//            rentAreaEntity.setBuilding(buildingEntity);
+//            rentAreaEntity.setValue(value);
+//            rentAreaRepository.save(rentAreaEntity);
+//        }
     }
     @Override
     public BuildingDTO findById(Long id) {
@@ -112,9 +120,9 @@ public class BuildingServiceImpl implements BuildingService {
 
     @Override
     public void deleteBuilding(Long[] ids) {
-        List<BuildingEntity> buildingEntities = buildingRepository.findByIdIn(ids);
-        rentAreaRepository.deleteAllByBuildingIn(buildingEntities);
-        assignmentBuildingRepository.deleteAllByBuildingIn(buildingEntities);
+//        List<BuildingEntity> buildingEntities = buildingRepository.findByIdIn(ids);
+//        rentAreaRepository.deleteAllByBuildingIn(buildingEntities);
+//        assignmentBuildingRepository.deleteAllByBuildingIn(buildingEntities);
         buildingRepository.deleteByIdIn(ids);
     }
 
@@ -166,6 +174,7 @@ public class BuildingServiceImpl implements BuildingService {
             }
         }
     }
+
 
 
 }

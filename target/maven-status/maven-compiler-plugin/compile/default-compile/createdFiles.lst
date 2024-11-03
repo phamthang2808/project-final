@@ -1,13 +1,13 @@
 com\javaweb\model\dto\CustomerDTO.class
-com\javaweb\repository\entity\DistrictEntity.class
 com\javaweb\repository\BuildingRepository.class
 com\javaweb\converter\BuildingConverter.class
+com\javaweb\entity\BuildingEntity.class
 com\javaweb\config\JpaAuditingConfig$AuditorAwareImpl.class
 com\javaweb\entity\BaseEntity.class
 com\javaweb\model\request\BuildingSearchRequest.class
 com\javaweb\entity\RoleEntity.class
 com\javaweb\SpringBootWebApplication.class
-com\javaweb\repository\DistrictRepository.class
+com\javaweb\entity\RentAreaEntity.class
 com\javaweb\model\dto\UserDTO.class
 com\javaweb\exception\MyException.class
 com\javaweb\repository\RentAreaRepository.class
@@ -24,7 +24,6 @@ com\javaweb\config\ModelMapperConfig.class
 com\javaweb\config\JpaAuditingConfig.class
 com\javaweb\utils\UploadFileUtils.class
 com\javaweb\controller\admin\UserController.class
-com\javaweb\repository\entity\RentAreaEntity.class
 com\javaweb\builder\BuildingSearchBuilder$Builder.class
 com\javaweb\utils\ReadFileUtils.class
 com\javaweb\repository\RoleRepository.class
@@ -32,6 +31,7 @@ com\javaweb\service\IUserService.class
 com\javaweb\model\dto\BuildingDTO.class
 com\javaweb\utils\DistrictCode.class
 com\javaweb\model\dto\PasswordDTO.class
+com\javaweb\repository\AssignmentBuildingRepository.class
 com\javaweb\enums\districtCode.class
 com\javaweb\model\dto\DistrictDTO.class
 com\javaweb\repository\custom\impl\RoleRepositoryImpl.class
@@ -41,8 +41,10 @@ com\javaweb\service\IRoleService.class
 com\javaweb\enums\buildingType.class
 com\javaweb\api\web\NewAPI.class
 com\javaweb\security\CustomSuccessHandler.class
+com\javaweb\entity\AssignmentBuildingEntity.class
 com\javaweb\model\dto\RoleDTO.class
 com\javaweb\utils\MessageUtils.class
+com\javaweb\model\response\TypeCodeResponseDTO.class
 com\javaweb\utils\MapUtils.class
 com\javaweb\service\impl\UserService.class
 com\javaweb\model\dto\MyUserDetail.class
@@ -68,5 +70,4 @@ com\javaweb\repository\custom\impl\BuildingRepositoryCustomImpl.class
 com\javaweb\api\admin\UserAPI.class
 com\javaweb\converter\ObjectToMapConverter.class
 com\javaweb\api\admin\BuildingAPI.class
-com\javaweb\repository\entity\BuildingEntity.class
 com\javaweb\model\dto\AssignmentBuildingDTO.class

@@ -2,12 +2,15 @@ D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\api\ad
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\exception\MyException.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\model\dto\UserDTO.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\repository\custom\UserRepositoryCustom.java
+D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\model\response\TypeCodeResponseDTO.java
+D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\repository\AssignmentBuildingRepository.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\utils\MessageUtils.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\security\CustomSuccessHandler.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\repository\BuildingRepository.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\repository\custom\BuildingRepositoryCustom.java
-D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\repository\entity\RentAreaEntity.java
+D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\entity\BuildingEntity.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\converter\RoleConverter.java
+D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\entity\RentAreaEntity.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\enums\districtCode.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\model\dto\MyUserDetail.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\service\impl\CustomUserDetailService.java
@@ -26,6 +29,7 @@ D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\utils\
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\service\BuildingService.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\controller\admin\UserController.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\api\admin\BuildingAPI.java
+D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\entity\AssignmentBuildingEntity.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\utils\UploadFileUtils.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\enums\buildingType.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\converter\UserConverter.java
@@ -46,7 +50,6 @@ D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\model\
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\repository\UserRepository.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\model\dto\AbstractDTO.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\utils\DistrictCode.java
-D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\repository\DistrictRepository.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\repository\RentAreaRepository.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\repository\custom\impl\BuildingRepositoryCustomImpl.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\service\impl\UserService.java
@@ -59,9 +62,7 @@ D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\reposi
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\model\dto\PasswordDTO.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\utils\BuildingType.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\entity\BaseEntity.java
-D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\repository\entity\BuildingEntity.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\model\response\ResponseDTO.java
-D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\repository\entity\DistrictEntity.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\builder\BuildingSearchBuilder.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\service\IUserService.java
 D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\java\com\javaweb\utils\ConnectionUtil.java
