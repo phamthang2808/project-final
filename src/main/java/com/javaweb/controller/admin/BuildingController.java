@@ -1,22 +1,23 @@
 package com.javaweb.controller.admin;
 
 
-import com.javaweb.converter.ObjectToMapConverter;
+import com.javaweb.constant.SystemConstant;
 import com.javaweb.enums.buildingType;
 import com.javaweb.enums.districtCode;
 import com.javaweb.model.dto.BuildingDTO;
 import com.javaweb.model.request.BuildingSearchRequest;
 import com.javaweb.model.response.BuildingSearchResponse;
-import com.javaweb.service.BuildingService;
+import com.javaweb.service.IBuildingService;
 import com.javaweb.service.IUserService;
+import com.javaweb.utils.DisplayTagUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.Map;
 
 @RestController(value = "buildingControllerOfAdmin")
 public class BuildingController {
@@ -24,21 +25,27 @@ public class BuildingController {
     private IUserService userService;
 
     @Autowired
-    private BuildingService buildingService;
+    private IBuildingService buildingService;
 
     @Autowired
     private ModelMapper modelMapper;
 
     @GetMapping("/admin/building-list")
-    public ModelAndView buildingList(@ModelAttribute(name = "modelSearch") BuildingSearchRequest params) {
+    public ModelAndView buildingList(@ModelAttribute(name = "modelSearch") BuildingSearchRequest params,
+                                     HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("admin/building/list");
         modelAndView.addObject("district", districtCode.type());
         modelAndView.addObject("renttype", buildingType.type());
         modelAndView.addObject("staffs", userService.listStaff());
-
         //xuong db lay du lieu
-        List<BuildingSearchResponse> buildings = buildingService.findAll(params, params.getTypeCode());
-        modelAndView.addObject("listBuiling", buildings);
+        BuildingSearchResponse model = new BuildingSearchResponse();
+        DisplayTagUtils.of(request, model);
+        List<BuildingSearchResponse> buildings = buildingService.findAll(params,
+                PageRequest.of(model.getPage() - 1, model.getMaxPageItems()));
+//        modelAndView.addObject("listBuiling", buildings);
+        model.setListResult(buildings);
+        model.setTotalItems(buildingService.countTotalItems());
+        modelAndView.addObject(SystemConstant.MODEL, model);
         return modelAndView;
     }
 

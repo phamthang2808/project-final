@@ -5,7 +5,7 @@ import com.javaweb.model.dto.BuildingDTO;
 import com.javaweb.model.response.ResponseDTO;
 import com.javaweb.model.response.StaffResponseDTO;
 import com.javaweb.repository.UserRepository;
-import com.javaweb.service.BuildingService;
+import com.javaweb.service.IBuildingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +26,7 @@ public class BuildingAPI {
     private UserRepository UserRepository;
 
     @Autowired
-    private BuildingService buildingService;
+    private IBuildingService buildingService;
 
     @PostMapping
     private ResponseEntity<?> createOrUpdateBuilding(

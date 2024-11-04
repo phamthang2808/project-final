@@ -6,6 +6,7 @@ com\javaweb\config\JpaAuditingConfig$AuditorAwareImpl.class
 com\javaweb\entity\BaseEntity.class
 com\javaweb\model\request\BuildingSearchRequest.class
 com\javaweb\entity\RoleEntity.class
+com\javaweb\service\IBuildingService.class
 com\javaweb\SpringBootWebApplication.class
 com\javaweb\entity\RentAreaEntity.class
 com\javaweb\model\dto\UserDTO.class
@@ -17,7 +18,6 @@ com\javaweb\entity\UserEntity.class
 com\javaweb\utils\StringUtils.class
 com\javaweb\utils\NumberUtils.class
 com\javaweb\security\utils\SecurityUtils.class
-com\javaweb\service\impl\BuildingServiceImpl.class
 com\javaweb\controller\web\HomeController.class
 com\javaweb\model\response\StaffResponseDTO.class
 com\javaweb\config\ModelMapperConfig.class
@@ -50,7 +50,6 @@ com\javaweb\service\impl\UserService.class
 com\javaweb\model\dto\MyUserDetail.class
 com\javaweb\service\impl\CustomUserDetailService.class
 com\javaweb\repository\custom\impl\UserRepositoryImpl.class
-com\javaweb\service\BuildingService.class
 com\javaweb\entity\UserRoleEntity.class
 com\javaweb\repository\UserRepository.class
 com\javaweb\utils\DisplayTagUtils.class
@@ -65,8 +64,9 @@ com\javaweb\utils\ConnectionUtil.class
 com\javaweb\builder\BuildingSearchBuilder.class
 com\javaweb\controller\admin\BuildingController.class
 com\javaweb\converter\BuildingSearchBuilderConverter.class
+com\javaweb\repository\custom\impl\BuildingRepositoryImpl.class
 com\javaweb\model\dto\AbstractDTO.class
-com\javaweb\repository\custom\impl\BuildingRepositoryCustomImpl.class
+com\javaweb\service\impl\BuildingService.class
 com\javaweb\api\admin\UserAPI.class
 com\javaweb\converter\ObjectToMapConverter.class
 com\javaweb\api\admin\BuildingAPI.class
