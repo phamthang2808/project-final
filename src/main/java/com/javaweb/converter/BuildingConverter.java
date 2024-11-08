@@ -60,15 +60,19 @@ public class BuildingConverter {
         return buildingDTO;
     }
 
-//    public BuildingEntity converterToBuildingEntity(BuildingDTO it) {
-//        BuildingEntity buildingEntity = modelMapper.map(it, BuildingEntity.class);
-//        //xu ly rieng district, rentarea bi null
-//        if(it.getRentArea() == null || it.getRentArea().isEmpty()) {
-//            throw new IllegalArgumentException("Rent area DTO is empty.");
-//        }
-//        if (it.getDistrict() == null || it.getDistrict().isEmpty()) {
-//            throw new IllegalArgumentException("District DTO is empty.");
-//        }
-//        return buildingEntity;
-//    }
+    public BuildingEntity converterToBuildingEntity(BuildingDTO it) {
+        BuildingEntity buildingEntity = modelMapper.map(it, BuildingEntity.class);
+        //xu ly rieng district, rentarea bi null
+        if(it.getRentArea() == null || it.getRentArea().isEmpty()) {
+            throw new IllegalArgumentException("Rent area DTO is empty.");
+        }
+        if (it.getDistrict() == null || it.getDistrict().isEmpty()) {
+            throw new IllegalArgumentException("District DTO is empty.");
+        }
+        if (it.getTypeCode() != null && !it.getTypeCode().isEmpty()) {
+            String typeCodeString = String.join(",", it.getTypeCode());
+            buildingEntity.setTypeCode(typeCodeString);
+        }
+        return buildingEntity;
+    }
 }

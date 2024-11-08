@@ -10,6 +10,8 @@ import com.javaweb.model.response.BuildingSearchResponse;
 import com.javaweb.service.IBuildingService;
 import com.javaweb.service.IUserService;
 import com.javaweb.utils.DisplayTagUtils;
+import com.javaweb.utils.MessageUtils;
+import org.apache.commons.lang.StringUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -18,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 @RestController(value = "buildingControllerOfAdmin")
 public class BuildingController {
@@ -46,6 +49,7 @@ public class BuildingController {
         model.setListResult(buildings);
         model.setTotalItems(buildingService.countTotalItems());
         modelAndView.addObject(SystemConstant.MODEL, model);
+        initMessageResponse(modelAndView, request);
         return modelAndView;
     }
 
@@ -68,5 +72,16 @@ public class BuildingController {
         modelAndView.addObject("renttype", buildingType.type());
         return modelAndView;
     }
+
+    private void initMessageResponse(ModelAndView mav, HttpServletRequest request) {
+        String message = request.getParameter("message");
+        if (message != null && StringUtils.isNotEmpty(message)) {
+            Map<String, String> messageMap = MessageUtils.getMessage(message);
+            mav.addObject(SystemConstant.ALERT, messageMap.get(SystemConstant.ALERT));
+            mav.addObject(SystemConstant.MESSAGE_RESPONSE, messageMap.get(SystemConstant.MESSAGE_RESPONSE));
+        }
+    }
+
+
 }
 

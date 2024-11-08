@@ -48,4 +48,11 @@ public class BuildingDTO extends AbstractDTO {
     @Size(min = 1,message = "Type code must be size >= 1")
     private List<String> typeCode;
     private Map<String, String> buildingDTOs = new HashMap<>();
+    public String getImageBase64() {
+        if (imageBase64 != null) {
+            return imageBase64.split(",")[1];
+        }
+        return null;
+    }
+
 }

@@ -54,7 +54,7 @@ public class BuildingAPI {
     private Object deleteBuilding(@PathVariable Long[] ids){
         //xuong service
         buildingService.deleteBuilding(ids);
-        return new String("deleteBuilding successfully.");
+         return new String("deleteBuilding successfully.");
     }
 
     @GetMapping("/{id}")

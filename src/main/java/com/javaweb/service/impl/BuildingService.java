@@ -1,9 +1,11 @@
 package com.javaweb.service.impl;
 
+import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 import javax.transaction.Transactional;
-
+import  java.util.Base64;
 import com.javaweb.builder.BuildingSearchBuilder;
 import com.javaweb.converter.BuildingConverter;
 import com.javaweb.converter.BuildingSearchBuilderConverter;
@@ -19,6 +21,7 @@ import com.javaweb.entity.BuildingEntity;
 import com.javaweb.entity.RentAreaEntity;
 import com.javaweb.repository.custom.BuildingRepositoryCustom;
 import com.javaweb.service.IBuildingService;
+import com.javaweb.utils.UploadFileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,11 +85,8 @@ public class BuildingService implements IBuildingService {
 
     @Override
     public void createOrupdateBuilding(BuildingDTO building) {
-        BuildingEntity buildingEntity = modelMapper.map(building, BuildingEntity.class);
-        if (building.getTypeCode() != null && !building.getTypeCode().isEmpty()) {
-            String typeCodeString = String.join(",", building.getTypeCode());
-            buildingEntity.setTypeCode(typeCodeString);
-        }
+        BuildingEntity buildingEntity = buildingConverter.converterToBuildingEntity(building);
+
         List<RentAreaEntity> rentAreaEntities = new ArrayList<>();
         for(Long value : building.getRentArea()){
            RentAreaEntity rentAreaEntity = new RentAreaEntity();
@@ -97,60 +97,53 @@ public class BuildingService implements IBuildingService {
         buildingEntity.setRentAreaEntities(rentAreaEntities);
         if (building.getId() != null) {
             rentAreaRepository.deleteAllByBuilding(buildingEntity);
+            BuildingEntity buildingEntityOld = buildingRepository.findById(buildingEntity.getId()).get();
+            if(buildingEntityOld.getImage() != null && !buildingEntityOld.getImage().isEmpty()){
+                buildingEntity.setImage(buildingEntityOld.getImage());
+            }
         }
+        saveThumbnail(building, buildingEntity);
+
         buildingRepository.save(buildingEntity);
-        //vi du them du lieu co thuoc tinh o bang khac 1 building co nhieu rentarea
-//        for (Long value : building.getRentArea()) {
-//            RentAreaEntity rentAreaEntity = new RentAreaEntity();
-//            rentAreaEntity.setBuilding(buildingEntity);
-//            rentAreaEntity.setValue(value);
-//            rentAreaRepository.save(rentAreaEntity);
-//        }
     }
+
+    private void saveThumbnail(BuildingDTO buildingDTO, BuildingEntity buildingEntity) {
+        String path = "/building/" + buildingDTO.getImageName();
+        if (buildingDTO.getImageBase64() != null) {
+            if (buildingEntity.getImage() != null) {
+                if (!path.equals(buildingEntity.getImage())) {
+                    File file = new File("C://home/office" + buildingEntity.getImage());
+                    file.delete();
+                }
+            }
+            String base64Data = buildingDTO.getImageBase64();
+            if(base64Data.contains(",")){
+                base64Data = base64Data.split(",")[1];
+            }
+            //byte[] bytes = Base64.decodeBase64(base64Data.getBytes(StandardCharsets.UTF_8));
+            byte[] bytes = Base64.getDecoder().decode(base64Data.getBytes(StandardCharsets.UTF_8));
+
+            UploadFileUtils.writeOrUpdate(path, bytes);
+            buildingEntity.setImage(path);
+        }
+    }
+
     @Override
     public BuildingDTO findById(Long id) {
         BuildingEntity buildingEntity = buildingRepository.findById(id).get();// get id
         BuildingDTO buildingDTO = buildingConverter.converterToBuilingDTO(buildingEntity);// convert entity -> dto
-//        List<TypeCodeResponseDTO> typeCodeResponseDTOS = new ArrayList<>();
-//        List<String> AllTypeCode = buildingDTO.getTypeCode();
-//        for(String value : AllTypeCode){
-//            TypeCodeResponseDTO typeCodeResponseDTO = new TypeCodeResponseDTO();
-//            typeCodeResponseDTO.setTypeCode(value);
-//            if( value.equals(AllTypeCode)){
-//                typeCodeResponseDTO.setChecked("checked");
-//            }else {
-//                typeCodeResponseDTO.setChecked("");
-//            }
-//           typeCodeResponseDTOS.add(typeCodeResponseDTO);
-//        }
-//        List<String> typeCodeStrings = typeCodeResponseDTOS.stream()
-//                .map(TypeCodeResponseDTO::getTypeCode)
-//                .collect(Collectors.toList());
-//        buildingDTO.setTypeCode(typeCodeStrings);
+
         return buildingDTO;
     }
 
 
     @Override
     public void deleteBuilding(Long[] ids) {
-//        List<BuildingEntity> buildingEntities = buildingRepository.findByIdIn(ids);
-//        rentAreaRepository.deleteAllByBuildingIn(buildingEntities);
-//        assignmentBuildingRepository.deleteAllByBuildingIn(buildingEntities);
+        List<BuildingEntity> buildingEntities = buildingRepository.findByIdIn(ids);
+      //  rentAreaRepository.deleteAllByBuildingIn(buildingEntities);
+        assignmentBuildingRepository.deleteAllByBuildingIn(buildingEntities);
         buildingRepository.deleteByIdIn(ids);
     }
-
-//    @Override
-//    public List<UserEntity> findByBuildingId(Long id) {
-//        List<AssignmentBuildingEntity> assignmentBuildingEntities = assignmentBuildingRepository.findByBuildingId(id).get();
-//        List<UserEntity> userEntities = new ArrayList<>();
-//        for (AssignmentBuildingEntity assignmentBuildingEntity : assignmentBuildingEntities) {
-//            UserEntity userEntity = assignmentBuildingEntity.getStaffs();//tra ve doi tuong
-//            if (userEntity != null) {
-//                userEntities.add(userEntity);
-//            }
-//        }
-//        return userEntities;
-//    }
 
     @Override
     public List<UserEntity> findByBuildingId(Long id) {
@@ -187,7 +180,5 @@ public class BuildingService implements IBuildingService {
             }
         }
     }
-
-
 
 }

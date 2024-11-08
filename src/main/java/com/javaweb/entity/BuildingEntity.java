@@ -116,4 +116,7 @@ public class BuildingEntity {
     @Column(name = "modifiedby")
     private String modifiedby;
 
+    @Column(name = "image")
+    private String image;
+
 }

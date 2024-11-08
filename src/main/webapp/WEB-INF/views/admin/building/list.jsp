@@ -276,6 +276,7 @@
         </div>
         <div class="hr hr-30 dotted hr-double"></div>
     </div>
+
     <div class="row">
         <div class="col-xs-12">
             <div class="table-responsive">
@@ -287,9 +288,8 @@
                                class="table table-fcv-ace table-striped table-bordered table-hover dataTable no-footer"
                                style="margin: 3em 0 1.5em;">
                     <display:column title="<fieldset class='form-group'>
-												        <input type='checkbox' id='checkAll' class='check-box-element'>
-												        </fieldset>" class="center select-cell"
-                                    headerClass="center select-cell">
+					 <input type='checkbox' id='checkAll' class='check-box-element'>
+					 </fieldset>" class="center select-cell" headerClass="center select-cell">
                         <fieldset>
                             <input type="checkbox" name="checkList" value="${tableList.id}"
                                    id="checkbox_${tableList.id}" class="check-box-element"/>
@@ -460,7 +460,8 @@
 
     $("#btnDeleteBuildings").click(function (e) {
         e.preventDefault();
-        var buildingIds = $("#building-list").find("tbody input[type=checkbox]:checked").map(function () {
+      //  var buildingIds = $("#building-list").find("tbody input[type=checkbox]:checked").map(function () {
+        var buildingIds = $(".table-responsive").find("input[type=checkbox].check-box-element:checked").map(function () {
             return $(this).val();
         }).get();
         console.log("okk");
