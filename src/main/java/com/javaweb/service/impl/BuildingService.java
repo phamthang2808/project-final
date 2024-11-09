@@ -10,6 +10,7 @@ import com.javaweb.builder.BuildingSearchBuilder;
 import com.javaweb.converter.BuildingConverter;
 import com.javaweb.converter.BuildingSearchBuilderConverter;
 import com.javaweb.converter.ObjectToMapConverter;
+import com.javaweb.converter.RentAreaConverter;
 import com.javaweb.entity.UserEntity;
 import com.javaweb.model.dto.AssignmentBuildingDTO;
 import com.javaweb.model.dto.BuildingDTO;
@@ -53,6 +54,9 @@ public class BuildingService implements IBuildingService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    RentAreaConverter rentAreaConverter;
+
     @Override
     public List<BuildingSearchResponse> findAll(BuildingSearchRequest params, Pageable pageable) {
         BuildingSearchBuilder buildingSearchBuilder = builderConverter.toBuildingSearchBuilder(params);// map
@@ -87,14 +91,9 @@ public class BuildingService implements IBuildingService {
     public void createOrupdateBuilding(BuildingDTO building) {
         BuildingEntity buildingEntity = buildingConverter.converterToBuildingEntity(building);
 
-        List<RentAreaEntity> rentAreaEntities = new ArrayList<>();
-        for(Long value : building.getRentArea()){
-           RentAreaEntity rentAreaEntity = new RentAreaEntity();
-           rentAreaEntity.setBuilding(buildingEntity);
-           rentAreaEntity.setValue(value);
-           rentAreaEntities.add(rentAreaEntity);
-        }
+        List<RentAreaEntity> rentAreaEntities = rentAreaConverter.toRentAreaEntity(building, buildingEntity);
         buildingEntity.setRentAreaEntities(rentAreaEntities);
+
         if (building.getId() != null) {
             rentAreaRepository.deleteAllByBuilding(buildingEntity);
             BuildingEntity buildingEntityOld = buildingRepository.findById(buildingEntity.getId()).get();
@@ -139,24 +138,25 @@ public class BuildingService implements IBuildingService {
 
     @Override
     public void deleteBuilding(Long[] ids) {
-        List<BuildingEntity> buildingEntities = buildingRepository.findByIdIn(ids);
-      //  rentAreaRepository.deleteAllByBuildingIn(buildingEntities);
-        assignmentBuildingRepository.deleteAllByBuildingIn(buildingEntities);
+//        List<BuildingEntity> buildingEntities = buildingRepository.findByIdIn(ids);
+//      //  rentAreaRepository.deleteAllByBuildingIn(buildingEntities);
+//        assignmentBuildingRepository.deleteAllByBuildingIn(buildingEntities);
         buildingRepository.deleteByIdIn(ids);
     }
 
     @Override
     public List<UserEntity> findByBuildingId(Long id) {
-        List<AssignmentBuildingEntity> liststaffById = new ArrayList<>();
-        List<AssignmentBuildingEntity> assignmentBuildingEntities = assignmentBuildingRepository.findAll();
-
-        for (AssignmentBuildingEntity assignmentBuildingEntity : assignmentBuildingEntities) {
-            if (assignmentBuildingEntity.getBuilding().getId().equals(id)) {
-                liststaffById.add(assignmentBuildingEntity);
-            }
-        }
-        List<UserEntity> userEntities = userRepository.findByAssignmentBuildingEntitiesIn(liststaffById);
-        return userEntities;
+//        List<AssignmentBuildingEntity> liststaffById = new ArrayList<>();
+//        List<AssignmentBuildingEntity> assignmentBuildingEntities = assignmentBuildingRepository.findAll();
+//
+//        for (AssignmentBuildingEntity assignmentBuildingEntity : assignmentBuildingEntities) {
+//            if (assignmentBuildingEntity.getBuilding().getId().equals(id)) {
+//                liststaffById.add(assignmentBuildingEntity);
+//            }
+//        }
+//        List<UserEntity> userEntities = userRepository.findByAssignmentBuildingEntitiesIn(liststaffById);
+//        return userEntities;
+        return null;
     }
 
     @Override
@@ -166,19 +166,18 @@ public class BuildingService implements IBuildingService {
         if (assignmentBuildingDTO.getBuildingId() != null) {
             buildingEntity = buildingRepository.getOne(assignmentBuildingDTO.getBuildingId());
         }
-        if (buildingEntity != null) {
-            assignmentBuildingRepository.deleteAllByBuildingId(buildingEntity.getId());
-        }
-        if (assignmentBuildingDTO.getBuildingId() != null) {
+//        if (buildingEntity != null) {
+//            assignmentBuildingRepository.deleteAllByBuildingId(buildingEntity.getId());
+//        }
             List<UserEntity> userEntities = userRepository.findByIdIn(assignmentBuildingDTO.getStaffs());
-
-            for (UserEntity userEntity : userEntities) {
-                AssignmentBuildingEntity assignmentBuildingEntity1 = new AssignmentBuildingEntity();
-                assignmentBuildingEntity1.setBuilding(buildingEntity);
-                assignmentBuildingEntity1.setStaffs(userEntity);
-                assignmentBuildingRepository.save(assignmentBuildingEntity1);
-            }
-        }
+//            for (UserEntity userEntity : userEntities) {
+//                AssignmentBuildingEntity assignmentBuildingEntity1 = new AssignmentBuildingEntity();
+//                assignmentBuildingEntity1.setBuilding(buildingEntity);
+//                assignmentBuildingEntity1.setStaffs(userEntity);
+//                assignmentBuildingRepository.save(assignmentBuildingEntity1);
+//            }
+        buildingEntity.setStaffs(userEntities);
+        buildingRepository.save(buildingEntity);
     }
 
 }

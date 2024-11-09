@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.jws.soap.SOAPBinding;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +28,8 @@ public class BuildingAPI {
 
     @Autowired
     private IBuildingService buildingService;
+    @Autowired
+    private UserRepository userRepository;
 
     @PostMapping
     private ResponseEntity<?> createOrUpdateBuilding(
@@ -62,7 +65,8 @@ public class BuildingAPI {
         //xuong service.....
         List<UserEntity> userEntities = UserRepository.findByStatusAndRoles_Code(1,"STAFF"); // all staff
         //BuildingEntity tuong ung voi id
-        List<UserEntity> assigmentStaffs = buildingService.findByBuildingId(id);
+      //  List<UserEntity> assigmentStaffs = buildingService.findByBuildingId(id);
+        List<UserEntity> assigmentStaffs = userRepository.findAllByBuildings_Id(id);
 
         List<StaffResponseDTO> staffResponseDTOS = new ArrayList<>();
         for(UserEntity userEntity : userEntities){ // duyet
