@@ -10,25 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f069175-165a-4387-a3e0-26e9cefbfd49" name="Default Changelist" comment="current">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/converter/RentAreaConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/api/admin/BuildingAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/api/admin/BuildingAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/entity/BuildingEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/entity/BuildingEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/entity/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/service/impl/BuildingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/service/impl/BuildingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/api/admin/BuildingAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/api/admin/BuildingAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/entity/BuildingEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/entity/BuildingEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/entity/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/entity/UserEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/service/impl/BuildingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/service/impl/BuildingService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/service/impl/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/service/impl/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/api/admin/BuildingAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/api/admin/BuildingAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/entity/BuildingEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/entity/BuildingEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/entity/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/entity/UserEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/service/impl/BuildingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/service/impl/BuildingService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/service/impl/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/service/impl/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -781,7 +763,9 @@
       <workItem from="1731050315650" duration="644000" />
       <workItem from="1731133344485" duration="1247000" />
       <workItem from="1731134607897" duration="868000" />
-      <workItem from="1731149851770" duration="2500000" />
+      <workItem from="1731149851770" duration="3548000" />
+      <workItem from="1731231192799" duration="595000" />
+      <workItem from="1731246449782" duration="630000" />
     </task>
     <task id="LOCAL-00001" summary="current">
       <option name="closed" value="true" />
