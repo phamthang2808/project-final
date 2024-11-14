@@ -10,7 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f069175-165a-4387-a3e0-26e9cefbfd49" name="Default Changelist" comment="current">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/config/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/config/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/constant/SystemConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/constant/SystemConstant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/model/dto/MyUserDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/model/dto/MyUserDetail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/security/CustomSuccessHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/security/CustomSuccessHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/security/utils/SecurityUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/security/utils/SecurityUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/config/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/config/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/constant/SystemConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/constant/SystemConstant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/model/dto/MyUserDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/model/dto/MyUserDetail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/security/CustomSuccessHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/security/CustomSuccessHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/security/utils/SecurityUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/security/utils/SecurityUtils.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
