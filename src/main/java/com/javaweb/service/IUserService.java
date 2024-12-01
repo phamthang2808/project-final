@@ -4,6 +4,7 @@ import com.javaweb.model.dto.PasswordDTO;
 import com.javaweb.model.dto.UserDTO;
 import com.javaweb.exception.MyException;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,7 @@ public interface IUserService {
     UserDTO findOneByUserName(String userName);
     UserDTO findUserById(long id);
     UserDTO insert(UserDTO userDTO);
+    void createUser(UserDTO userDTO);
     UserDTO update(Long id, UserDTO userDTO);
     void updatePassword(long id, PasswordDTO userDTO) throws MyException;
     UserDTO resetPassword(long id);

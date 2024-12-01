@@ -84,6 +84,7 @@
                                         <div class="col-xs-12">
                                             <div class="col-xs-2">
                                                 <div>
+                                                 <labe>Chọn quận</labe>
                                                     <form:select path="district" class="form-control">
                                                         <form:option value="" label="--Chọn Quận--"/>
                                                         <form:options items="${district}"/>

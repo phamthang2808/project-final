@@ -23,7 +23,7 @@ public class BuildingDTO extends AbstractDTO {
     private String name;
     private String street;
     private String ward;
-    private String district;//
+    private String district;
     private String level;
     private String overtimeFee;
     private String electricityFee;

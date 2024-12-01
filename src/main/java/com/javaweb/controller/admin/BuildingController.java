@@ -2,11 +2,16 @@ package com.javaweb.controller.admin;
 
 
 import com.javaweb.constant.SystemConstant;
-import com.javaweb.enums.buildingType;
-import com.javaweb.enums.districtCode;
+import com.javaweb.entity.BuildingEntity;
+import com.javaweb.entity.UserEntity;
+import com.javaweb.enums.BuildingType;
+import com.javaweb.enums.DistrictCode;
 import com.javaweb.model.dto.BuildingDTO;
 import com.javaweb.model.request.BuildingSearchRequest;
 import com.javaweb.model.response.BuildingSearchResponse;
+import com.javaweb.repository.BuildingRepository;
+import com.javaweb.repository.UserRepository;
+import com.javaweb.security.utils.SecurityUtils;
 import com.javaweb.service.IBuildingService;
 import com.javaweb.service.IUserService;
 import com.javaweb.utils.DisplayTagUtils;
@@ -33,16 +38,24 @@ public class BuildingController {
     @Autowired
     private ModelMapper modelMapper;
 
+    @Autowired
+    private BuildingRepository buildingRepository;
+    @Autowired
+    private UserRepository userRepository;
+
     @GetMapping("/admin/building-list")
     public ModelAndView buildingList(@ModelAttribute(name = "modelSearch") BuildingSearchRequest params,
                                      HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("admin/building/list");
-        modelAndView.addObject("district", districtCode.type());
-        modelAndView.addObject("renttype", buildingType.type());
+        modelAndView.addObject("district", DistrictCode.type());
+        modelAndView.addObject("renttype", BuildingType.type());
         modelAndView.addObject("staffs", userService.listStaff());
         //xuong db lay du lieu
         BuildingSearchResponse model = new BuildingSearchResponse();
         DisplayTagUtils.of(request, model);
+        if(SecurityUtils.getAuthorities().contains("ROLE_STAFF")){
+            params.setStaffId(SecurityUtils.getPrincipal().getId());
+        }
         List<BuildingSearchResponse> buildings = buildingService.findAll(params,
                 PageRequest.of(model.getPage() - 1, model.getMaxPageItems()));
 //        modelAndView.addObject("listBuiling", buildings);
@@ -56,8 +69,16 @@ public class BuildingController {
     @GetMapping("/admin/building-edit-{id}")
     public ModelAndView buildingEdit(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView("admin/building/edit");
-        modelAndView.addObject("district", districtCode.type());
-        modelAndView.addObject("renttype", buildingType.type());
+        BuildingEntity buildingEntity = buildingRepository.findById(id).get();
+        if(SecurityUtils.getAuthorities().contains("ROLE_STAFF")){
+            UserEntity userEntity = userRepository.findById(SecurityUtils.getPrincipal().getId()).get();
+            if(!buildingEntity.getStaffs().contains(userEntity)){
+                  return new ModelAndView("/view/web/errornotfound");
+            }
+        }
+
+        modelAndView.addObject("district", DistrictCode.type ());
+        modelAndView.addObject("renttype", BuildingType.type());
 
         //xuong service dung findById
         BuildingDTO buildingDTO = buildingService.findById(id);
@@ -68,8 +89,8 @@ public class BuildingController {
     @GetMapping("/admin/building-edit")
     public ModelAndView buildingEdit(@ModelAttribute(name = "buildingEdit") BuildingDTO buildingDTO) {
         ModelAndView modelAndView = new ModelAndView("admin/building/edit");
-        modelAndView.addObject("district", districtCode.type());
-        modelAndView.addObject("renttype", buildingType.type());
+        modelAndView.addObject("district", DistrictCode.type());
+        modelAndView.addObject("renttype", BuildingType.type());
         return modelAndView;
     }
 

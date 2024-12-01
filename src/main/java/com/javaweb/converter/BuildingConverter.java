@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-import com.javaweb.enums.districtCode;
+import com.javaweb.enums.DistrictCode;
 import com.javaweb.model.dto.BuildingDTO;
 import com.javaweb.model.response.BuildingSearchResponse;
 import com.javaweb.entity.BuildingEntity;
@@ -25,7 +25,7 @@ public class BuildingConverter {
         String districtName = "";
         if(it.getDistrict() != null){
             try {
-                districtName = districtCode.valueOf(it.getDistrict()).getDistrictName();
+                districtName = DistrictCode.valueOf(it.getDistrict()).getDistrictName();
             } catch (IllegalArgumentException e) {
                 districtName = " District null";
             }
@@ -55,7 +55,9 @@ public class BuildingConverter {
             List<String> typeCodeList = Arrays.asList(it.getTypeCode().split(","));
             buildingDTO.setTypeCode(typeCodeList);
         }
-
+        if(it.getAvatar() != null && !it.getAvatar().isEmpty()){
+            buildingDTO.setImage(it.getAvatar());
+        }
 
         return buildingDTO;
     }

@@ -10,16 +10,137 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f069175-165a-4387-a3e0-26e9cefbfd49" name="Default Changelist" comment="current">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/api/admin/CustomerAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/api/admin/TransactionAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/builder/CustomerSearchBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/controller/admin/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/converter/CustomerConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/converter/CustomerSearchBuilderConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/converter/TransactionConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/entity/CustomerEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/entity/TransactionEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/enums/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/enums/TransactionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/model/dto/AssignmentCustomerDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/model/dto/TransactionDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/model/request/CustomerSearchRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/model/response/CustomerSearchResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/model/response/TransactionResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/CustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/TransactionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/custom/CustomerRepositoryCustom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/custom/TransactionRepositoryCustom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/custom/impl/CustomerRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/service/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/service/ITransactionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/service/impl/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/service/impl/TransactionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/customer/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/customer/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/signup.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/api/admin/BuildingAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/api/admin/BuildingAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/api/admin/UserAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/api/admin/UserAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/constant/SystemConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/constant/SystemConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/controller/admin/BuildingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/controller/admin/BuildingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/controller/admin/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/controller/admin/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/converter/BuildingConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/converter/BuildingConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/converter/BuildingSearchBuilderConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/converter/BuildingSearchBuilderConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/entity/BuildingEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/entity/BuildingEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/enums/buildingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/enums/BuildingType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/enums/districtCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/enums/DistrictCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/model/dto/AbstractDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/model/dto/AbstractDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/model/dto/BuildingDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/model/dto/BuildingDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/model/dto/CustomerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/model/dto/CustomerDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/model/dto/MyUserDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/model/dto/MyUserDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/custom/impl/BuildingRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/repository/custom/impl/BuildingRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/security/CustomSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/security/CustomSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/service/impl/BuildingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/service/impl/BuildingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/service/impl/CustomUserDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/service/impl/CustomUserDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/service/impl/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/service/impl/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaweb/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaweb/utils/StringUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/building/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/building/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/user/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/user/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/user/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/web/contact.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/web/contact.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/admin/menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/admin/menu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/web/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/web/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/api/admin/BuildingAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/api/admin/BuildingAPI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/config/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/config/WebSecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/constant/SystemConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/constant/SystemConstant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/controller/admin/BuildingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/controller/admin/BuildingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/converter/BuildingConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/converter/BuildingConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/converter/BuildingSearchBuilderConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/converter/BuildingSearchBuilderConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/converter/RentAreaConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/converter/RentAreaConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/entity/BuildingEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/entity/BuildingEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/entity/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/entity/UserEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/enums/buildingType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/enums/buildingType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/enums/districtCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/enums/districtCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/model/dto/AbstractDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/model/dto/AbstractDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/model/dto/BuildingDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/model/dto/BuildingDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/model/dto/CustomerDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/model/dto/CustomerDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/model/dto/MyUserDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/model/dto/MyUserDetail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/model/response/BuildingSearchResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/model/response/BuildingSearchResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/repository/BuildingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/repository/BuildingRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/repository/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/repository/custom/impl/BuildingRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/repository/custom/impl/BuildingRepositoryImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/security/CustomSuccessHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/security/CustomSuccessHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/security/utils/SecurityUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/security/utils/SecurityUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/service/IBuildingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/service/IBuildingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/service/impl/BuildingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/service/impl/BuildingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/service/impl/CustomUserDetailService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/service/impl/CustomUserDetailService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/service/impl/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/service/impl/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/utils/MapUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/utils/MapUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/utils/StringUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/utils/StringUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaweb/utils/UploadFileUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaweb/utils/UploadFileUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0.war.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0.war.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/api/admin/BuildingAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/api/admin/BuildingAPI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/config/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/config/WebSecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/constant/SystemConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/constant/SystemConstant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/controller/admin/BuildingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/controller/admin/BuildingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/converter/BuildingConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/converter/BuildingConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/converter/BuildingSearchBuilderConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/converter/BuildingSearchBuilderConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/converter/RentAreaConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/converter/RentAreaConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/entity/BuildingEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/entity/BuildingEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/entity/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/entity/UserEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/enums/buildingType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/enums/buildingType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/enums/districtCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/enums/districtCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/model/dto/AbstractDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/model/dto/AbstractDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/model/dto/BuildingDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/model/dto/BuildingDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/model/dto/CustomerDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/model/dto/CustomerDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/model/dto/MyUserDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/model/dto/MyUserDetail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/model/response/BuildingSearchResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/model/response/BuildingSearchResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/repository/BuildingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/repository/BuildingRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/repository/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/repository/custom/impl/BuildingRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/repository/custom/impl/BuildingRepositoryImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/security/CustomSuccessHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/security/CustomSuccessHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/security/utils/SecurityUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/security/utils/SecurityUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/service/IBuildingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/service/IBuildingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/service/impl/BuildingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/service/impl/BuildingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/service/impl/CustomUserDetailService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/service/impl/CustomUserDetailService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/service/impl/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/service/impl/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/utils/MapUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/utils/MapUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/utils/StringUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/utils/StringUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/utils/UploadFileUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/classes/com/javaweb/utils/UploadFileUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/views/admin/building/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/views/admin/building/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/views/admin/user/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/views/admin/user/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/views/admin/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/views/admin/user/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/views/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/views/web/contact.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/WEB-INF/views/web/contact.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/common/admin/menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/common/admin/menu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-1.0/common/web/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-1.0/common/web/header.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,10 +250,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
-        <option value="Enum" />
-        <option value="Interface" />
         <option value="HTML File" />
+        <option value="Enum" />
+        <option value="Jsp File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -493,7 +614,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;service.view.auto.scroll.from.source&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.web.browsers&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -501,6 +622,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Thu Nguyen\OneDrive\Máy tính\Exercise-4\src\main\webapp\WEB-INF\views\admin\customer" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JAVA_BACKEND\Spring-boot-web\Spring-boot-web\src\main\webapp\WEB-INF\views" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.javaweb" />
@@ -775,6 +899,40 @@
       <workItem from="1731149851770" duration="3548000" />
       <workItem from="1731231192799" duration="595000" />
       <workItem from="1731246449782" duration="630000" />
+      <workItem from="1731638557615" duration="6484000" />
+      <workItem from="1731645151163" duration="136000" />
+      <workItem from="1731681941327" duration="4393000" />
+      <workItem from="1731733024667" duration="44000" />
+      <workItem from="1731737911961" duration="777000" />
+      <workItem from="1731763951607" duration="1018000" />
+      <workItem from="1731765255893" duration="966000" />
+      <workItem from="1732211007191" duration="1455000" />
+      <workItem from="1732257799186" duration="2303000" />
+      <workItem from="1732282200669" duration="6817000" />
+      <workItem from="1732330486552" duration="4417000" />
+      <workItem from="1732531391065" duration="2452000" />
+      <workItem from="1732545408651" duration="8018000" />
+      <workItem from="1732558830120" duration="2950000" />
+      <workItem from="1732589104021" duration="3476000" />
+      <workItem from="1732601708342" duration="3984000" />
+      <workItem from="1732629186850" duration="7494000" />
+      <workItem from="1732684990360" duration="2019000" />
+      <workItem from="1732711810116" duration="11380000" />
+      <workItem from="1732787634958" duration="14688000" />
+      <workItem from="1732803002716" duration="288000" />
+      <workItem from="1732809911167" duration="4449000" />
+      <workItem from="1732861969241" duration="5000" />
+      <workItem from="1732877339643" duration="15589000" />
+      <workItem from="1732937862427" duration="6924000" />
+      <workItem from="1732946509084" duration="2025000" />
+      <workItem from="1732951455986" duration="1606000" />
+      <workItem from="1732957013131" duration="1785000" />
+      <workItem from="1732973291052" duration="348000" />
+      <workItem from="1732989877512" duration="8853000" />
+      <workItem from="1733017166909" duration="9319000" />
+      <workItem from="1733027939587" duration="8701000" />
+      <workItem from="1733042978931" duration="22593000" />
+      <workItem from="1733066184813" duration="9243000" />
     </task>
     <task id="LOCAL-00001" summary="current">
       <option name="closed" value="true" />
@@ -873,11 +1031,29 @@
     <option name="LAST_COMMIT_MESSAGE" value="current" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/javaweb/service/impl/UserService.java</url>
+          <line>129</line>
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.javaweb.model.dto.AssignmentBuildingDTO" memberName="staffs" />
       </pinned-members>
     </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+        <watch expression="//        List&lt;String&gt; typecode = buildingSearchBuilder.getTypecode();&#10;//        if (typecode != null &amp;&amp; typecode.size() != 0) {&#10;//            joinQuery.append(&quot; join buildingrenttype brt ON b.id = brt.buildingid&quot;)&#10;//                    .append(&quot; join renttype rt ON brt.renttypeid = rt.id&quot;);&#10;//        }&#10;" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/database/insert_database.sql">

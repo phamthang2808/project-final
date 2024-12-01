@@ -63,7 +63,6 @@ public class UserService implements IUserService {
     }
 
 
-
     @Override
     public List<UserDTO> getAllUsers(Pageable pageable) {
         List<UserEntity> userEntities = userRepository.getAllUsers(pageable);
@@ -121,6 +120,14 @@ public class UserService implements IUserService {
         userEntity.setStatus(1);
         userEntity.setPassword(passwordEncoder.encode(SystemConstant.PASSWORD_DEFAULT));
         return userConverter.convertToDto(userRepository.save(userEntity));
+    }
+
+    @Override
+    public void createUser(UserDTO userDTO) {
+        UserEntity userEntity = userConverter.convertToEntity(userDTO);
+        userEntity.setStatus(1);
+        userEntity.setPassword(passwordEncoder.encode(SystemConstant.PASSWORD_DEFAULT));
+        userRepository.save(userEntity);
     }
 
     @Override

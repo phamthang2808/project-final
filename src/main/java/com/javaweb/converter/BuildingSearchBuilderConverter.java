@@ -3,7 +3,9 @@ package com.javaweb.converter;
 import java.util.List;
 import java.util.Map;
 
+import com.javaweb.builder.CustomerSearchBuilder;
 import com.javaweb.model.request.BuildingSearchRequest;
+import com.javaweb.model.request.CustomerSearchRequest;
 import org.springframework.stereotype.Component;
 import com.javaweb.builder.BuildingSearchBuilder;
 import com.javaweb.utils.MapUtils;
@@ -50,4 +52,5 @@ public class BuildingSearchBuilderConverter {
                 .build();
         return buildingSearchBuilder;
     }
+
 }

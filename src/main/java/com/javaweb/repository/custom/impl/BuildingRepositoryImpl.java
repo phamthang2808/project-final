@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.javaweb.entity.BuildingEntity;
+import com.javaweb.utils.StringUtils;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import com.javaweb.builder.BuildingSearchBuilder;
@@ -29,12 +30,6 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
         if (rentAreaFrom != null || rentAreaTo != null) {
             joinQuery.append(" join Rentarea ra ON ra.buildingid  = b.id");
         }
-//        List<String> typecode = buildingSearchBuilder.getTypecode();
-//        if (typecode != null && typecode.size() != 0) {
-//            joinQuery.append(" join buildingrenttype brt ON b.id = brt.buildingid")
-//                    .append(" join renttype rt ON brt.renttypeid = rt.id");
-//        }
-
     }
 
     public void nomalQuerry(BuildingSearchBuilder buildingSearchBuilder, StringBuilder where) {
@@ -46,7 +41,7 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
                 if (!fieldName.equals("staffId") && !fieldName.equals("typecode") && !fieldName.startsWith("price")
                         && !fieldName.startsWith("area")) {
                     Object value = it.get(buildingSearchBuilder);
-                    if (value != null) {
+                    if (StringUtils.check(value)) {
                         if (it.getType().getName().equals("java.lang.Long")
                                 || it.getType().getName().equals("java.lang.Integer")) {
                             where.append(" and b." + fieldName + " = " + value);

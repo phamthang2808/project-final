@@ -97,8 +97,8 @@ public class BuildingService implements IBuildingService {
         if (building.getId() != null) {
             rentAreaRepository.deleteAllByBuilding(buildingEntity);
             BuildingEntity buildingEntityOld = buildingRepository.findById(buildingEntity.getId()).get();
-            if(buildingEntityOld.getImage() != null && !buildingEntityOld.getImage().isEmpty()){
-                buildingEntity.setImage(buildingEntityOld.getImage());
+            if(buildingEntityOld.getAvatar() != null && !buildingEntityOld.getAvatar().isEmpty()){
+                buildingEntity.setAvatar(buildingEntityOld.getAvatar());
             }
         }
         saveThumbnail(building, buildingEntity);
@@ -109,9 +109,9 @@ public class BuildingService implements IBuildingService {
     private void saveThumbnail(BuildingDTO buildingDTO, BuildingEntity buildingEntity) {
         String path = "/building/" + buildingDTO.getImageName();
         if (buildingDTO.getImageBase64() != null) {
-            if (buildingEntity.getImage() != null) {
-                if (!path.equals(buildingEntity.getImage())) {
-                    File file = new File("C://home/office" + buildingEntity.getImage());
+            if (buildingEntity.getAvatar() != null) {
+                if (!path.equals(buildingEntity.getAvatar())) {
+                    File file = new File("C://home/office" + buildingEntity.getAvatar());
                     file.delete();
                 }
             }
@@ -123,7 +123,7 @@ public class BuildingService implements IBuildingService {
             byte[] bytes = Base64.getDecoder().decode(base64Data.getBytes(StandardCharsets.UTF_8));
 
             UploadFileUtils.writeOrUpdate(path, bytes);
-            buildingEntity.setImage(path);
+            buildingEntity.setAvatar(path);
         }
     }
 

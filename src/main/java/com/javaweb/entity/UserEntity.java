@@ -1,5 +1,6 @@
 package com.javaweb.entity;
 
+import com.javaweb.enums.TransactionType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -43,4 +44,10 @@ public class UserEntity extends BaseEntity {
 
     @ManyToMany(mappedBy="staffs", fetch = FetchType.LAZY)
     private List<BuildingEntity> buildings = new ArrayList<>();
+
+    @ManyToMany(mappedBy="userEntities", fetch = FetchType.LAZY)
+    private List<CustomerEntity> customerEntities = new ArrayList<>();
+
+//    @OneToMany(mappedBy="transactionEntity", fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+//    private List<TransactionEntity> transactionEntities = new ArrayList<>();
 }

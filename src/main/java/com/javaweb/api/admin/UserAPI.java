@@ -21,6 +21,12 @@ public class UserAPI {
         return ResponseEntity.ok(userService.insert(newUser));
     }
 
+    @PostMapping("/signup")
+    public Object createUser(@RequestBody UserDTO newUser) {
+        userService.createUser(newUser);
+        return new String("sign up successfully!");
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<UserDTO> updateUsers(@PathVariable("id") long id, @RequestBody UserDTO userDTO) {
         return ResponseEntity.ok(userService.update(id, userDTO));

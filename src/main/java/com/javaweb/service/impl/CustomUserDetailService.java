@@ -23,7 +23,7 @@ public class CustomUserDetailService implements UserDetailsService {
     private IUserService userService;
 
     @Override
-    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException { //truyen vao name roi lay ra nguoi do
         UserDTO userDTO = userService.findOneByUserNameAndStatus(name, 1);
         if(userDTO == null){
             throw new UsernameNotFoundException("Username not found");
@@ -32,7 +32,7 @@ public class CustomUserDetailService implements UserDetailsService {
         for(RoleDTO role: userDTO.getRoles()){
             authorities.add(new SimpleGrantedAuthority("ROLE_"+role.getCode()));
         }
-        MyUserDetail myUserDetail = new MyUserDetail(name,userDTO.getPassword(),true,true,true,true,authorities);
+        MyUserDetail myUserDetail = new MyUserDetail(userDTO.getId(),name,userDTO.getPassword(),true,true,true,true,authorities);
         BeanUtils.copyProperties(userDTO, myUserDetail);
         return myUserDetail;
     }
