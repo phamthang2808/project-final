@@ -351,7 +351,7 @@
             success: function (result) {
                 console.log("success");
                 alert(result)
-                //   location.replace("/admin/customer-list");
+                location.replace("/admin/customer-edit-${customerEdit.id}");
             },
             error: function (result) {
                 console.log(result.message);
