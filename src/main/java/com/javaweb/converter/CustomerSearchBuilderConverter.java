@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class CustomerSearchBuilderConverter {
     public CustomerSearchBuilder toCustomerSearchBuilder(CustomerSearchRequest customerSearchRequest) {
         CustomerSearchBuilder customerSearchBuilder = new CustomerSearchBuilder.Builder()
-                .setFullName(MapUtils.getObject(customerSearchRequest.getName(), String.class))
+                .setFullName(MapUtils.getObject(customerSearchRequest.getFullName(), String.class))
                 .setPhone(MapUtils.getObject(customerSearchRequest.getPhone(), String.class))
                 .setEmail(MapUtils.getObject(customerSearchRequest.getEmail(),String.class))
                 .setStaffId(MapUtils.getObject(customerSearchRequest.getStaffId(), Long.class))

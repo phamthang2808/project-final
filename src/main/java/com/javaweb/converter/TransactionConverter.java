@@ -32,19 +32,14 @@ public class TransactionConverter {
         TransactionEntity transactionEntity;
         if (transactionDTO.getId() == null) {
             transactionEntity = new TransactionEntity();
-            transactionEntity.setCreatedBy(SecurityUtils.getPrincipal().getUsername());
-            transactionEntity.setModifiedBy("");
         } else {
             transactionEntity = transactionRepository.findById(transactionDTO.getId()).get();
-            transactionEntity.setModifiedBy(SecurityUtils.getPrincipal().getUsername());
-            transactionEntity.setModifiedDate(transactionDTO.getModifiedDate());
         }
 
         CustomerEntity customerEntity = customerRepository.findById(transactionDTO.getCustomerId()).get();
         transactionEntity.setCustomerEntity(customerEntity);
         transactionEntity.setCode(transactionDTO.getCode());
         transactionEntity.setNote(transactionDTO.getNote());
-
 
         return transactionEntity;
     }

@@ -10,6 +10,7 @@ import com.javaweb.model.dto.BuildingDTO;
 import com.javaweb.model.response.BuildingSearchResponse;
 import com.javaweb.entity.BuildingEntity;
 import com.javaweb.entity.RentAreaEntity;
+import com.javaweb.repository.BuildingRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,6 +20,8 @@ public class BuildingConverter {
 
     @Autowired
     private ModelMapper modelMapper;
+    @Autowired
+    private BuildingRepository buildingRepository;
 
     public BuildingSearchResponse converterToBuilingResponseDTO(BuildingEntity it) {
         BuildingSearchResponse buildingSearchRespone = modelMapper.map(it, BuildingSearchResponse.class);
@@ -74,6 +77,13 @@ public class BuildingConverter {
         if (it.getTypeCode() != null && !it.getTypeCode().isEmpty()) {
             String typeCodeString = String.join(",", it.getTypeCode());
             buildingEntity.setTypeCode(typeCodeString);
+        }
+        BuildingEntity currentBuildingEntity;
+        if(it.getId() != null){
+            currentBuildingEntity = buildingRepository.findById(it.getId()).get();
+            buildingEntity.setCreatedBy(currentBuildingEntity.getCreatedBy());
+            buildingEntity.setCreatedDate(currentBuildingEntity.getCreatedDate());
+            buildingEntity.setStaffs(currentBuildingEntity.getStaffs());
         }
         return buildingEntity;
     }

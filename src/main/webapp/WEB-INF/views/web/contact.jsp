@@ -271,7 +271,7 @@
         }
 
         const json = {
-            name: name,
+            fullName: name,
             email: email,
             phone: phone,
             demand: demand

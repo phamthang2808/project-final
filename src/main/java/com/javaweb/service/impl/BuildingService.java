@@ -17,7 +17,6 @@ import com.javaweb.model.dto.BuildingDTO;
 import com.javaweb.model.request.BuildingSearchRequest;
 import com.javaweb.model.response.BuildingSearchResponse;
 import com.javaweb.repository.*;
-import com.javaweb.entity.AssignmentBuildingEntity;
 import com.javaweb.entity.BuildingEntity;
 import com.javaweb.entity.RentAreaEntity;
 import com.javaweb.repository.custom.BuildingRepositoryCustom;
@@ -48,8 +47,8 @@ public class BuildingService implements IBuildingService {
     @Autowired
     private RentAreaRepository rentAreaRepository;
 
-    @Autowired
-    private AssignmentBuildingRepository assignmentBuildingRepository;
+//    @Autowired
+//    private AssignmentBuildingRepository assignmentBuildingRepository;
 
     @Autowired
     private UserRepository userRepository;

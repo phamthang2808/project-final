@@ -1,9 +1,15 @@
 package com.javaweb.entity;
 
+import com.javaweb.security.utils.SecurityUtils;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -115,9 +121,32 @@ public class BuildingEntity {
     private String avatar;
 
     @Column(name = "createddate")
-    private String createddate;
+    @CreatedDate
+    private Date createdDate;
+
+    @Column(name = "createdby")
+    @CreatedBy
+    private String createdBy;
+
+    @Column(name = "modifieddate")
+    @LastModifiedDate
+    private Date modifiedDate;
 
     @Column(name = "modifiedby")
-    private String modifiedby;
+    @LastModifiedBy
+    private String modifiedBy;
 
+    @PrePersist
+    public void prePersist() {
+        this.createdDate = new Date();
+        this.createdBy = SecurityUtils.getPrincipal().getUsername();
+        this.modifiedBy = null;
+        this.modifiedDate = null;
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        this.modifiedBy = SecurityUtils.getPrincipal().getUsername();
+        this.modifiedDate = new Date();
+    }
 }

@@ -63,7 +63,11 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public void deleteCustomer(Long[] ids) {
-        customerRepository.deleteCustomer(ids);
+        List<CustomerEntity> customerEntities = customerRepository.findByIdIn(ids);
+        for(CustomerEntity it : customerEntities) {
+            it.setIsActive(0L);
+        }
+        customerRepository.saveAll(customerEntities);
     }
 
     @Override

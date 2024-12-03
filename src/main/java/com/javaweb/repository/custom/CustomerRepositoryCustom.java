@@ -9,5 +9,5 @@ import java.util.List;
 public interface CustomerRepositoryCustom {
     List<CustomerEntity> findAll(CustomerSearchBuilder customerSearchBuilder, Pageable pageable);
     int countTotalItem();
-    void deleteCustomer(Long[] ids);
+//    void deleteCustomer(Long[] ids);
 }

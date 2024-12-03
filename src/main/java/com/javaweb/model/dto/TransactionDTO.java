@@ -18,4 +18,5 @@ public class TransactionDTO extends AbstractDTO {
     private Long customerId;
     @NotBlank(message = "Transaction type can not be Blank")
     private String code;
+
 }

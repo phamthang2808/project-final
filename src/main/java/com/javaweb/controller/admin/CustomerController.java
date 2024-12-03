@@ -63,6 +63,13 @@ public class CustomerController {
             customerSearchRequest.setStaffId((SecurityUtils.getPrincipal().getId()));
         }
         List<CustomerSearchResponse> customers = customerService.getListCustomer(customerSearchRequest, PageRequest.of(customerSearchResponse.getPage() - 1, customerSearchRequest.getMaxPageItems()));
+
+        Map<String, String> statusMap = Status.type();
+        customers.forEach(customer -> {
+            if (customer.getStatus() != null) {
+                customer.setStatus(statusMap.get(customer.getStatus())); // Chuyển từ key sang value
+            }
+        });
         customerSearchRequest.setListResult(customers);
         customerSearchRequest.setTotalItems(customerService.countTotalItems());
         customerSearchRequest.setMaxPageItems(customerSearchRequest.getMaxPageItems());

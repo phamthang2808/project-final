@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <label class="col-xs-3">Tên khách hàng</label>
                         <div class="col-xs-9">
-                            <form:input class="form-control" path="name" placeholder="Nhập tên khách hàng"/>
+                            <form:input class="form-control" path="fullName" placeholder="Nhập tên khách hàng"/>
 
                         </div>
                     </div>
@@ -223,22 +223,29 @@
 </div><!-- /.main-content -->
 <div class="modal fade" id="transactionTypeModal" role="dialog">
     <div class="modal-dialog">
-        <div class="modal-header">
-            <h4 class="modal-title">Chi tiết giao dịch</h4>
-        </div>
-        <div class="modal-body">
-            <div class="form-group">
-                <input type="text" id="note" name="note" class="form-control">
-            </div>
-        </div>
-        <input type="hidden" id="customerId" value="">
-        <input type="hidden" id="code" value="">
-        <input type="hidden" id="id" value="">
-        <div class="modal-footer">
-            <div class="form-group pull-right">
-                <button type="button" class="btn btn-pink" id="btnTransaction" onclick="addOrEditTransaction()">
-                </button>
-                <button type="button" class="btn btn-purple" data-dismiss="modal">Đóng</button>
+        <div class="modal-content">
+            <div class="modal-dialog">
+                <div class="modal-header">
+                    <h3 class="modal-title" style="font-weight: bold; color: #0dcaf0" type="">Chi tiết giao dịch</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="note" class="col-xs-10 col-xm-3 control-label no-padding-right">Nội dung giao
+                            dịch</label>
+                        <input type="text" id="note" name="note" class="form-control">
+                    </div>
+                </div>
+                <input type="hidden" id="customerId" value="">
+                <input type="hidden" id="code" value="">
+                <input type="hidden" id="id" value="">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-pink" id="btnTransaction" onclick="addOrEditTransaction()">
+                    </button>
+                    <button type="button" class="btn btn-purple" data-dismiss="modal">Đóng</button>
+                </div>
             </div>
         </div>
     </div>
@@ -253,10 +260,10 @@
         deleteTransaction(id);
     }
 
-    function deleteTransaction(id){
+    function deleteTransaction(id) {
         $.ajax({
-            url:"/api/deleteTransaction-" + id,
-            type :"DELETE",
+            url: "/api/deleteTransaction-" + id,
+            type: "DELETE",
             dataType: "text",
             success: function (result) {
                 console.log("success");
@@ -329,7 +336,7 @@
         $.each(formData, function (i, v) {
             json["" + v.name + ""] = v.value;
         });
-        var name = $("#name").val();
+        var name = $("#fullName").val();
         var phone = $("#phone").val();
         if (name.length == 0) {
             alert("Customer name not empty!");
@@ -351,7 +358,7 @@
             success: function (result) {
                 console.log("success");
                 alert(result)
-                location.replace("/admin/customer-edit-${customerEdit.id}");
+                <%--location.replace("/admin/customer-edit-${customerEdit.id}");--%>
             },
             error: function (result) {
                 console.log(result.message);

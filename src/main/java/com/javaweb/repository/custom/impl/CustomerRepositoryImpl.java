@@ -85,25 +85,25 @@ public class CustomerRepositoryImpl implements CustomerRepositoryCustom {
     @Override
     public int countTotalItem() {
         StringBuilder sql = new StringBuilder("SELECT c.*, count(c.id) FROM customer c ");
-        StringBuilder where = new StringBuilder(" where 1=1");
+        StringBuilder where = new StringBuilder(" where 1=1 and is_active != 0");
         sql.append(where).append(" GROUP BY c.id;");
         Query query = entityManager.createNativeQuery(sql.toString());
         return query.getResultList().size();
     }
 
-    @Override
-    public void deleteCustomer(Long[] ids) {
-        StringBuilder delete = new StringBuilder("UPDATE customer SET is_active = 0 WHERE id IN (");
-        if (ids != null && ids.length > 0) {
-            String code = Arrays.stream(ids).map(String::valueOf).collect(Collectors.joining(", "));
-            delete.append(code);
-            delete.append(");");
-        } else {
-            throw new RuntimeException("data not null!");
-        }
-        System.out.println(delete);
-        Query query = entityManager.createNativeQuery(delete.toString(), CustomerEntity.class);
-        query.executeUpdate();
-    }
+//    @Override
+//    public void deleteCustomer(Long[] ids) {
+//        StringBuilder delete = new StringBuilder("UPDATE customer SET is_active = 0 WHERE id IN (");
+//        if (ids != null && ids.length > 0) {
+//            String code = Arrays.stream(ids).map(String::valueOf).collect(Collectors.joining(", "));
+//            delete.append(code);
+//            delete.append(");");
+//        } else {
+//            throw new RuntimeException("data not null!");
+//        }
+//        System.out.println(delete);
+//        Query query = entityManager.createNativeQuery(delete.toString(), CustomerEntity.class);
+//        query.executeUpdate();
+//    }
 
 }

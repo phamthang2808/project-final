@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 @Setter
 public class CustomerDTO extends AbstractDTO{
     @NotBlank(message = "Name customer can not be Blank!")
-    private String name;
+    private String fullName;
     private String managementStaff;
 
     private String phone;

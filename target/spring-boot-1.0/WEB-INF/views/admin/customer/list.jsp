@@ -74,7 +74,7 @@
                                             <div class="col-xs-4">
                                                 <div>
                                                     <label>Tên khách hàng</label>
-                                                    <form:input class="form-control" path="name"
+                                                    <form:input class="form-control" path="fullName"
                                                                 placeholder="Nhập tên khách hàng"/>
                                                 </div>
                                             </div>
@@ -190,7 +190,7 @@
                         </fieldset>
                     </display:column>
 
-                    <display:column property="name" title="Tên khách hàng" headerClass="text-left"/>
+                    <display:column property="fullName" title="Tên khách hàng" headerClass="text-left"/>
                     <display:column property="phone" title="Di động" headerClass="text-left"/>
                     <display:column property="email" title="Email" headerClass="text-left"/>
                     <display:column property="demand" title="Nhu cầu" headerClass="text-left"/>
