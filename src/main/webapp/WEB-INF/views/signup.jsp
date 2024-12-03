@@ -1,85 +1,97 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@include file="/common/taglib.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Đăng ký tài khoản</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sign up account</title>
+
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
 </head>
-<style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-    }
-
-    a {
-        display: block; /* Thẻ <a> chiếm toàn bộ màn hình */
-        height: 100%;
-        width: 100%;
-    }
-
-    a img {
-        width: 100%; /* Chiều rộng 100% màn hình */
-        height: 100%; /* Chiều cao 100% màn hình */
-        object-fit: cover; /* Ảnh bao phủ và giữ tỷ lệ */
-    }
-</style>
-<body>
-<a src="https://www.google.com.vn/url?sa=i&url=https%3A%2F%2Fmaisonoffice.vn%2Ftin-tuc%2Ftop-22-toa-nha-cao-nhat-tai-ha-noi%2F&psig=AOvVaw2J11V-hoGqyiy9fmfNjbGT&ust=1733241485109000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMiRn-25iYoDFQAAAAAdAAAAABAE">
-
-</a>
-<form id="signupForm">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-            <div class="card text-white" style="border-radius: 1rem; background-color: #2e8965;">
-                <div class="card-body p-2 px-5 text-center">
-                    <div class="md-5 md-4 mt-4 pb-2">
-                        <h2 class="fw-bold mb-2 text-uppercase">Sign up</h2>
-
-                        <div class="form-outline form-white mb-2">
-                            <label class="form-label" for="username">Username</label>
-                            <input type="text" id="username" class="form-control form-control-sm">
+<body class="bg-gradient-primary">
+<div class="container">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <div class="row">
+                <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                <div class="col-lg-7">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                         </div>
-                        <div class="form-outline form-white mb-2">
-                            <label class="form-label" for="username">Fullname</label>
-                            <input type="text" id="fullname" class="form-control form-control-sm">
+                        <form id="signupForm" class="user">
+                            <%--                            <div class="form-group row">--%>
+                            <%--                                <div class="col-sm-6 mb-3 mb-sm-0">--%>
+                            <%--                                    <input type="text" class="form-control form-control-user" id="exampleFirstName"--%>
+                            <%--                                           placeholder="First Name">--%>
+                            <%--                                </div>--%>
+                            <%--                                <div class="col-sm-6">--%>
+                            <%--                                    <input type="text" class="form-control form-control-user" id="exampleLastName"--%>
+                            <%--                                           placeholder="Last Name">--%>
+                            <%--                                </div>--%>
+                            <%--                            </div>--%>
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user" id="username"
+                                       placeholder="User Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user" id="fullname"
+                                       placeholder="Full Name">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="password" class="form-control form-control-user"
+                                           id="password" placeholder="Password">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="password" class="form-control form-control-user"
+                                           id="confirm_password" placeholder="Repeat Password">
+                                </div>
+                            </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block" id="signup"> Register Account</button>
+<%--                            <a href="login.html" class="btn btn-primary btn-user btn-block">--%>
+<%--                                Register Account--%>
+<%--                            </a>--%>
+                            <hr>
+                            <a href="index.html" class="btn btn-google btn-user btn-block">
+                                <i class="fab fa-google fa-fw"></i> Register with Google
+                            </a>
+                            <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                            </a>
+                        </form>
+                        <hr>
+                        <div class="text-center">
+                            <a class="small" href="forgot-password.html">Forgot Password?</a>
                         </div>
-                        <div class="form-outline form-white mb-2">
-                            <label class="form-label" for="password">Password</label>
-                            <input type="password" id="password" class="form-control form-control-sm">
+                        <div class="text-center">
+                            <a class="small"   href="${pageContext.request.contextPath}/login">Already have an account? Login!</a>
                         </div>
-
-                        <div class="form-outline form-white mb-2">
-                            <label class="form-label" for="confirm_password">Confirm Password</label>
-                            <input type="password" id="confirm_password" class="form-control form-control-sm">
-                        </div>
-
-                        <button type="submit" class="btn btn-outline-light btn-lg px-5" id="signup">Register</button>
-
-                        <div class="d-flex justify-content-center text-center mt-2 pt-1">
-                            <a href="#!" class="login-extension text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                            <a href="#!" class="login-extension text-white"><i
-                                    class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                            <a href="#!" class="login-extension text-white"><i class="fab fa-google fa-lg"></i></a>
-                        </div>
-
-                        <p class="text-center text-muted mt-2 mb-0">Account already exists? <a
-                                href="${pageContext.request.contextPath}/login" class="fw-bold text-body"><u
-                                style="color: white ;">Login here</u></a></p>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</form>
+</div>
 
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="js/sb-admin-2.min.js"></script>
 <script>
-    // Thêm sự kiện submit cho form
+
     document.getElementById('signupForm').addEventListener('submit', function (event) {
         event.preventDefault(); // Ngăn việc gửi form tự động
 
@@ -128,9 +140,12 @@
     }
 </script>
 
-
 </body>
 </html>
+
+
+
+
 
 
 

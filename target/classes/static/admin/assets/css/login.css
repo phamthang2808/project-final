@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 90vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+.image_tong {
+    flex: 2;
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid #8a8787;
+}
+.image_tong img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    flex: 1;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.flag {
+    position: absolute;
+    top: 10px;
+    right: 28px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: red;
+}
+.bx-chevron-down{
+    position: absolute;
+    right:0;
+    top: 10px;
+    font-size: 30px;
+}
+
+.register {
+    font-size: 24px;
+    color: #CF47E7;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.image_rocket {
+    width: 20px;
+    height: 20px;
+}
+.log_in {
+    background-color: #fff;
+    color: #9f2997;
+    border: 1px solid transparent; /* Viền trong suốt */
+    border-image: linear-gradient(90deg, #3E45D2 0%, #5130B3 34%, #8a2be2 60%, #730C7C 100%) 1; /* Để hổ trợ làm viền nhiều màu cho nút  */
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+
+}
+.bxl-google{
+    font-size: 50px;
+    background: linear-gradient(90deg, #3E45D2 0%, #5130B3 34%, #8a2be2 60%, #730C7C 100%); /* Các màu với vị trí dừng */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.brick {
+    position: relative;
+    display: flex; /* Bố cục Flexbox */
+    align-items: center; /* Căn giữa theo trục dọc */
+    justify-content: center; /* Căn giữa toàn bộ nội dung */
+    width: 100%;
+    margin: 20px 0; /* Khoảng cách trên dưới */
+}
+
+.separator1 {
+    border: 0.5px solid #ccc;
+    width: 45%; /* Chiều rộng mỗi đường kẻ */
+
+}
+
+.or {
+    margin: 0 10px; /* Khoảng cách hai bên của chữ "Hoặc" */
+    font-size: 20px;
+    color: #5047B0;
+    text-align: center;
+    background-color: #fff; /* Màu nền để che giao nhau với đường kẻ */
+    padding: 0 5px; /* Khoảng cách giữa chữ và nền */
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 14px;
+    color: #5047B0;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.password-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.password-wrapper i {
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    color: #0b0b0b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 16px;
+    color: #000;
+    font-size: 12px;
+}
+
+.checkbox input {
+    margin-top: 3px;
+}
+
+.submit {
+    background-color: #9f2997;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.login-link {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 15px;
+    color: #666;
+}
+
+.login-link a {
+    color: #9f2997;
+    text-decoration: none;
+    font-weight: bold;
+}
+.icon{
+    position: absolute;
+    display: flex;
+    width: 40px;
+    height: 100%;
+    border-left: 1px solid #ccc;
+    right: 0;
+    background: #C1B5B5;
+}
