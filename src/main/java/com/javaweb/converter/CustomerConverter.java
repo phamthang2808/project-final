@@ -5,6 +5,7 @@ import com.javaweb.entity.BuildingEntity;
 import com.javaweb.entity.CustomerEntity;
 import com.javaweb.entity.RentAreaEntity;
 import com.javaweb.entity.UserEntity;
+import com.javaweb.enums.Status;
 import com.javaweb.model.dto.BuildingDTO;
 import com.javaweb.model.dto.CustomerDTO;
 import com.javaweb.model.response.CustomerSearchResponse;
@@ -14,7 +15,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class CustomerConverter {
@@ -48,6 +51,10 @@ public class CustomerConverter {
                 customerEntity.setUserEntities(currentUsers);
             }
         }
+        Map<String, String> statusMap = Status.type();
+        if(customerEntity.getStatus() != null){
+            customerEntity.setStatus(statusMap.get(customerEntity.getStatus()));
+        }
         return customerEntity;
     }
 
@@ -59,7 +66,7 @@ public class CustomerConverter {
         } else {
             customerEntity.setCreatedBy("anonymousUser");
         }
-        customerEntity.setStatus("CHUA_XU_LY");
+        customerEntity.setStatus("Chưa xử lý");
         return customerEntity;
     }
 }

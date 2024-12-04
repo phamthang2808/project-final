@@ -19,6 +19,9 @@
 
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="<c:url value="/admin/assets/css/login.css"/>" />
+
+
 </head>
 <body class="bg-gradient-primary">
 <div class="container">
